@@ -1,6 +1,7 @@
 # Ozi-Bots
 
 Sizlerle geliştirmiş olduğum botlardan biriyle tanıştırmak istiyorum..
+Minik bir kaç hatası kaldı vaktim olup düzenltince değiştiririm starlarınızı bekliyorum yeni github hesabım.
 
 ![image](https://user-images.githubusercontent.com/92666466/139575506-c3d8b1cd-dab1-4c4a-8fc0-89e52b1148df.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575391-c1c267fe-eee9-41c0-b821-cf90ca1c8641.png)
