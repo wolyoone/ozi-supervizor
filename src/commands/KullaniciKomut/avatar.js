@@ -1,5 +1,4 @@
 const conf = require("../../configs/sunucuayar.json")
-const { red, green} = require("../../configs/emojis.json")
 module.exports = {
     conf: {
       aliases: ["avatar","av"],
@@ -8,9 +7,9 @@ module.exports = {
     },
   
 run: async (client, message, args, embed, prefix) => {
-    const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-    message.react(green)
-    message.lineReply(`${member.user.username} ${member.user.avatarURL({ dynamic: true, size: 4096 })}`)
+	if (!message.guild) return;
+let user = args.length > 0 ? message.mentions.users.first() || await client.users.fetch(args[0]) || message.author : message.author
+message.channel.send(`${user.tag} ${user.displayAvatarURL({ dynamic: true, size: 4096 })}`)
 
 },
   };
