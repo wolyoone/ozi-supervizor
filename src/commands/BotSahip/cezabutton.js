@@ -4,16 +4,17 @@ const conf = require("../../configs/sunucuayar.json");
 module.exports = {
   conf: {
     aliases: [],
-    name: "ecrolalma",
+    name: "cezabutton",
     owner: true,
   },
 
   run: async (client, message, args) => {
-    client.api.channels(message.channel.id).messages.post({ data: {"content":"Merhaba **Revulion** üyeleri,\nÇekiliş katılımcısı alarak <:ozinitro:899337278047006831> , <:ozispotify:899337292840312912> , <:ozinetflix:899337280790077491> , <:exxen:900396713116835900> , <:blutv:900396707362246666> gibi çeşitli ödüllerin sahibi olabilirsiniz.\nEtkinlik katılımcısı alarak çeşitli etkinliklerin yapıldığı anlarda herkesten önce haberdar olabilirsiniz ve çekilişlere önceden katılma hakkı kazanabilirsiniz.\n\n__Aşağıda ki butonlara basarak siz de bu ödülleri kazanmaya hemen başlayabilirsiniz!__","components":[{"type":1,"components":[
+    client.api.channels(message.channel.id).messages.post({ data: {"content":"<:jail:903566151727087686> Aşağıda ki düğmelerden ceza listenizi, ceza puanını ve aktif cezanızın kalan süresini görüntüleyebilirsiniz.","components":[{"type":1,"components":[
 
-        {"type":2,"style":3,"custom_id":"buttoncekilis","label":"🎁 Çekiliş Katılımcısı"},
-        {"type":2,"style":4,"custom_id":"buttonetkinlik","label":"🎉 Etkinlik Katılımcısı"}
-        
+        {"type":2,"style":2,"custom_id":"cezapuan","label":"Ceza Puanı","emoji": { "id": "903565442206036019"}},
+        {"type":2,"style":3,"custom_id":"cezalarım","label":"Cezalarım","emoji": { "id": "903564842978402304"}},
+        {"type":2,"style":4,"custom_id":"kalanzaman","label":"Kalan Zamanım?","emoji": { "id": "903564832387760128"}}
+
         ]}]} })
   },
 };
