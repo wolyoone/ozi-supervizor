@@ -3,13 +3,12 @@ require("discord-reply")
 const client = (global.client = new Client({ fetchAllMembers: true }));
 require('discord-buttons')(client)
 const settings = require("./src/configs/settings.json");
+const conf = require("./src/configs/sunucuayar.json");
 const fs = require("fs");
 client.commands = new Collection();
 client.aliases = new Collection();
 client.invites = new Collection();
 client.cooldown = new Map();
-
-const db = require("quick.db");
 
 const map = new Map();
 const lımıt = 4;
