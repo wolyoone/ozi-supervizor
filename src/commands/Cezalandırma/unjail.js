@@ -51,7 +51,7 @@ module.exports = {
       .setAuthor(member.user.username, member.user.avatarURL({ dynamic: true, size: 2048 }))
       .setColor("#2f3136")
       .setDescription(`
-      ${member.toString()} Adlı Kişinin Ses Mutesi Kaldırıldı
+      ${member.toString()} Adlı Kişinin Jaili Kaldırıldı
       
 <a:Revuu:901441322152493066> Jaili Kaldıran Kişi : ${message.author} (\`${message.author.id}\`)
           `)
