@@ -10,6 +10,8 @@
 - Ceza bilgilendirme butonundaki kalan süre butonu gelistirilip daha sonra eklenicek.
 - Yetki aldırmada hata var gelistirilip daha sonra eklenicek.
 
+Bu botta emeği ve codeları bulunan Aris Lesnar' a teşekürlerimi iletiyorum.
+
 ![image](https://user-images.githubusercontent.com/92666466/139575506-c3d8b1cd-dab1-4c4a-8fc0-89e52b1148df.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575391-c1c267fe-eee9-41c0-b821-cf90ca1c8641.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575398-a0863b73-e2f0-4982-901d-6fc223640dae.png)
@@ -26,5 +28,3 @@
 ![image](https://user-images.githubusercontent.com/92666466/139575381-c6cef99a-3dd2-4c43-b208-e7faa3233774.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575656-0f8e35da-e696-4a6a-a3c7-5342af53de8d.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575672-a7f84db7-98af-46c5-9f37-b2dbfc5fd729.png)
-
-Bu botta emeği ve codeları bulunan thearkxd ve Aris Lesnar' a teşekürlerimi iletiyorum.
