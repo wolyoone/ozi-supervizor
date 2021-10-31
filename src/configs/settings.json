@@ -1,0 +1,33 @@
+{
+  "token": "ODY5MTk3OTI0NzI5NDk5NjY4.YP6tpg.HNoeJTlTAYP6m0xFnY3xV0GTOOI",
+  "prefix": [".","!","r!"],
+  "guildID": "899273632436592701",
+  "mongoUrl": "mongodb+srv://Burness07:Burness07@cluster0.nubpc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "owners": ["612688335944679600","",""],
+  "botDurum": "✬ Revulion Developed by OZİ",
+  "botSes": "899273633103507489",
+  "registerPerm": "899273632637919234",
+
+  "dmMessages": true,
+
+  "messageDolar": 1,
+  "voiceDolar": 1,
+
+
+  "messageCount": 1,
+  "messageCoin": 2,
+  "voiceCount": 1,
+  "voiceCoin": 4,
+  "publicCoin": 4,
+  "inviteCount": 1,
+  "inviteCoin": 15,
+  "taggedCoin": 25,
+  "toplamsCoin": 5.5,
+  "yetkiCoin": 30,
+
+  "banlimit": 3,
+  "jaillimit": 3,
+  "warnlimit": 3,
+  "chatmutelimit": 3,
+  "voicemutelimit": 3
+}
