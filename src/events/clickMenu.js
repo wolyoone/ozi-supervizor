@@ -46,82 +46,30 @@ module.exports = async (menu) => {
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla üstünüzdeki Bütün rolleri aldım!`)
         },3000)            
     }
-    ////////////////////////////////////////////////////////////////////////
-    
-    if(menu.values[0] === "ict_lol") {
-        await menu.clicker.member.roles.add("903973380871573556") 
-        setTimeout(() => {
-            menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&903973380871573556> rolünü aldın!`)
-        },3000)            
-    }
-    if(menu.values[0] === "ict_csgo") {
-        await menu.clicker.member.roles.add("903973361695223858") 
-        setTimeout(() => {
-            menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&903973361695223858> rolünü aldın!`)
-        },3000)    
-    }
-    if(menu.values[0] === "ict_minecraft") {
-        await menu.clicker.member.roles.add("903973373976129636") 
-        setTimeout(() => {
-            menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&903973373976129636> rolünü aldın!`)
-        },3000)    
-    }
-        if(menu.values[0] === "ict_valorant") {
-        await menu.clicker.member.roles.add("903973377356746794") 
-        setTimeout(() => {
-            menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&903973377356746794> rolünü aldın!`)
-        },3000)            
-    }
-        if(menu.values[0] === "ict_fortnite") {
-        await menu.clicker.member.roles.add("903973369488232479") 
-        setTimeout(() => {
-            menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&903973369488232479> rolünü aldın!`)
-        },3000)            
-    }
-        if(menu.values[0] === "ict_gta5") {
+    if(menu.values[0] === "vk") {
         await menu.clicker.member.roles.add("901127903608209548") 
         setTimeout(() => {
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&901127903608209548> rolünü aldın!`)
         },3000)            
     }
-        if(menu.values[0] === "ict_pubg") {
+    if(menu.values[0] === "dc") {
         await menu.clicker.member.roles.add("901127728076574830") 
         setTimeout(() => {
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&901127728076574830> rolünü aldın!`)
-        },3000)            
+        },3000)    
     }
-        if(menu.values[0] === "ict_pubgmobile") {
+    if(menu.values[0] === "gif") {
         await menu.clicker.member.roles.add("901128021413593148") 
         setTimeout(() => {
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&901128021413593148> rolünü aldın!`)
-        },3000)            
+        },3000)    
     }
-        if(menu.values[0] === "ict_rust") {
-        await menu.clicker.member.roles.add("903974449026576414") 
-        setTimeout(() => {
-            menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&903974449026576414> rolünü aldın!`)
-        },3000)            
-    }
-            if(menu.values[0] === "ict_brawlhalla") {
-        await menu.clicker.member.roles.add("903974470430126091") 
-        setTimeout(() => {
-            menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&903974470430126091> rolünü aldın!`)
-        },3000)            
-    }
-            if(menu.values[0] === "ict_mobilelegends") {
-        await menu.clicker.member.roles.add("903975160481210390") 
-        setTimeout(() => {
-            menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&903975160481210390> rolünü aldın!`)
-        },3000)            
-    }
-    if(menu.values[0] === "rlsz") {
-        await menu.clicker.member.roles.remove(["903973361695223858","903973369488232479","903973373976129636","903973377356746794","903973380871573556","901127903608209548","901127728076574830","901128021413593148","903974449026576414","903974470430126091","903975160481210390"])
+    if(menu.values[0] === "rolsuzz") {
+        await menu.clicker.member.roles.remove(["901127728076574830", "901127903608209548", "901128021413593148"])
         setTimeout(() => {
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla üstünüzdeki Bütün rolleri aldım!`)
         },3000)   
     }
-
-    ////////////////////////////////////////////////////////////////////////
     if (menu.values[0] === "kirmizi") {
         if(!conf.ekipRolu.some(x => menu.clicker.member.roles.cache.has(x)))
         {
@@ -302,6 +250,4 @@ module.exports = async (menu) => {
 module.exports.conf = {
     name: "clickMenu",
   };
-
-
 
