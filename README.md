@@ -1,11 +1,10 @@
-# V12 Discord Supervisor
+# Ozi Bots
 
 - Minik bir kaç hatası kaldı vaktim olup düzeltince değiştiririm starlarınızı bekliyorum yeni github hesabım.
 - Sizlerle geliştirmiş olduğum botlardan biriyle tanıştırmak istiyorum.. 
-- Detaya inmiş olabilirim ama kafa karıştırmaz.
-- Invite, Moderasyon, Register, Buton sistemleri vs vs bir çok özelliği içinde barındırıyor.
+- Invite, Moderasyon, Register, Stats, Buton sistemleri.
 
-# Eksik Kalan - Tamamlanmamış Yerler
+# Eksik Kalan ve Tamamlanmamış Yerler
 
 - Ceza bilgilendirme butonundaki kalan süre butonu gelistirilip daha sonra eklenicek.
 - Yetki aldırmada hata var gelistirilip daha sonra eklenicek.
