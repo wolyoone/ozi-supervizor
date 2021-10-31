@@ -8,6 +8,7 @@
 # Eksik Kalan - Tamamlanmamış Yerler
 
 - Ceza bilgilendirme butonundaki kalan süre butonu gelistirilip daha sonra eklenicek.
+- Yetki aldırmada hata var gelistirilip daha sonra eklenicek.
 
 ![image](https://user-images.githubusercontent.com/92666466/139575506-c3d8b1cd-dab1-4c4a-8fc0-89e52b1148df.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575391-c1c267fe-eee9-41c0-b821-cf90ca1c8641.png)
