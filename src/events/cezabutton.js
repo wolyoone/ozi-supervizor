@@ -4,6 +4,7 @@ const ceza = require("../schemas/ceza")
 const moment = require("moment");
 moment.locale("tr");
 const penals = require("../schemas/penals");
+const data = require("../schemas/penals");
 const { green , red } = require("../configs/emojis.json")
 
 module.exports = async (button) => {
@@ -36,10 +37,14 @@ if (data.length === 0) return button.reply.edit(`${member.toString()} üyesinin 
 if (data.length > 0) return button.reply.edit(data);
 }
 
+let datas = await penals.find({ guildID: conf.guildID, userID: button.clicker.member.id, active: true}).sort({ date: -1 });
+datas = datas.map((x) => `${red} <@${x.staff}> tarafından **${moment(x.date).format("LLL")}**'da işlenen __"#${x.id}"__ numaralı __"${x.type}"__ türündeki cezalandırman **${moment(x.finishDate).format("LLL")}** tarihinde biticektir.`);
+
 if(button.id === "kalanzaman")
 {
 await button.reply.think(true)
-await button.reply.edit(`blablabla`)
+if (data.length === 0) return button.reply.edit(`${member.toString()} üyesinin aktif ceza bilgisi bulunmamakta.`)
+await button.reply.edit(datas)
 }
 
 }
