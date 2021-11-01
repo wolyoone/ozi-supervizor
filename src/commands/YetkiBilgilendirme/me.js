@@ -1,8 +1,6 @@
 const moment = require("moment");
 require("moment-duration-format");
 const conf = require("../../configs/sunucuayar.json");
-const messageUserChannel = require("../../schemas/messageUserChannel");
-const voiceUserChannel = require("../../schemas/voiceUserChannel");
 const voiceUserParent = require("../../schemas/voiceUserParent");
 const messageUser = require("../../schemas/messageUser");
 const voiceUser = require("../../schemas/voiceUser");
@@ -32,12 +30,7 @@ module.exports = {
     if(!conf.staffs.some(rol => message.member.roles.cache.has(rol))) return message.react(red)
     const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
     if(!conf.staffs.some(rol => member.roles.cache.has(rol))) return message.react(red)
-    const Active1 = await messageUserChannel.find({ guildID: message.guild.id, userID: member.user.id }).sort({ channelData: -1 });
-    const Active2 = await voiceUserChannel.find({ guildID: message.guild.id, userID: member.user.id }).sort({ channelData: -1 });
 
-    Active1.length > 0 ? messageTop = Active1.splice(0, 5).map(x => `<#${x.channelID}>: \`${Number(x.channelData).toLocaleString()} mesaj\``).join("\n") : messageTop = "Veri bulunmuyor."
-    Active2.length > 0 ? voiceTop = Active2.splice(0, 5).map(x => `<#${x.channelID}>: \`${moment.duration(x.channelData).format("H [saat], m [dakika] s [saniye]")}\``).join("\n") : voiceTop = "Veri bulunmuyor."
-    
     const messageData = await messageUser.findOne({ guildID: message.guild.id, userID: member.user.id });
     const voiceData = await voiceUser.findOne({ guildID: message.guild.id, userID: member.user.id });
     const messageWeekly = messageData ? messageData.weeklyStat : 0;
@@ -69,7 +62,7 @@ module.exports = {
     const maxValue2 = "10"
     const coinStatus2 = client.ranks.length > 0 ?
 `**Kayıt Görev Durumu :**  
-<a:Muhabbet:899339317896429641> ${progressBar(kayitgData ? kayitgData.kayit : 0, 10, 10)} \`${kayittotal} (${kayittotal}/10)\`
+<a:Muhabbet:899339317896429641> ${progressBar1(kayitgData ? kayitgData.kayit : 0, 10, 10)} \`${kayittotal} (${kayittotal}/10)\`
 ` : "";
           //
     const mesajData = await mesaj.findOne({ guildID: message.guild.id, userID: member.user.id });
@@ -291,7 +284,6 @@ msg.edit({
       const task = new MessageEmbed()
       .setDescription(`
       ${member.toString()}, (${member.roles.highest}) rolüne ait görevlerin aşağıda belirtilmiştir. Görevler tamamlandığında tamamladığın görevlerin ödüllerini almak için \`.görevlerim ödül\` komutu ile alabilirsiniz.  
-
       Kalan Süre: \`${moment.duration(moment().endOf('day').valueOf() - Date.now()).format("H [saat], m [dakika] s [saniye]")}\`
       5 görevi tamamlamak sana toplam \`120 Coin\` verecektir!
                 
