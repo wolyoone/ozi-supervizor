@@ -5,9 +5,9 @@ const settings = require("../../configs/settings.json")
 const { red, green} = require("../../configs/emojis.json")
 module.exports = {
   conf: {
-    aliases: ["yetkiver", "yetkili"],
-    name: "yetkili",
-    help: "yetkili [kullanıcı]"
+    aliases: ["yetki-aldır", "yetkialdır", "yetkili"],
+    name: "yetki-aldır",
+    help: "yetki-aldır [kullanıcı]"
   },
 
   run: async (client, message, args, embed) => {
@@ -16,22 +16,21 @@ module.exports = {
     if (!member) 
     {
     message.react(red)
-    message.channel.send("Bir üye belirtmelisin!").then(x=>x.delete({timeout:5000})) 
+    message.channel.send("Bir üye belirtmelisin!").then(x => x.delete({timeout: 5000})); 
     return }
     if (!member.user.username.includes(conf.tag)) 
     {
     message.react(red)
-    message.channel.send("Bu üye taglı değil!").then(x=>x.delete({timeout:5000})) 
+    message.channel.send("Bu üye taglı değil!").then(x => x.delete({timeout: 5000})); 
     return }
-    const yetkiData = await yetkis.findOne({ guildID: message.guild.id, userID: message.author.id });
-    if (yetkiData && yetkiData.yetkis.includes(member.user.id)) 
+    const yetkiData  = await yetkis.findOne({ guildID: message.guild.id, userID: message.author.id });
+    if (yetkiData  && yetkiData.yetkis.includes(member.user.id)) 
     {
     message.react(red)
-    message.channel.send("Bu üye zaten önceden yetkili olmuş.").then(x=>x.delete({timeout:5000})) 
+    message.channel.send("Bu üyeye zaten daha önce yetki aldırılmış!").then(x => x.delete({timeout: 5000})); 
     return }
 
-    embed.setDescription(`${message.member.toString()} üyesi sana yetki vermek istiyor. Kabul ediyor musun?`);
-    const msg = await message.channel.send(member.toString(), { embed });
+    const msg = await message.channel.send( `${member.toString()}, ${message.member.toString()} üyesi sana yetki vermek istiyor. Kabul ediyor musun?`);
     msg.react("<a:green:899337284481077298>");
     msg.react("<a:red:899337291582046228>");
 
@@ -42,19 +41,12 @@ module.exports = {
     }).then(async collected => {
       const reaction = collected.first();
       if (reaction.emoji.name === 'green') {
-
-        await coin.findOneAndUpdate({ guildID: member.guild.id, userID: message.author.id }, { $inc: { coin: settings.yetkiCoin } }, { upsert: true });
-        
-        msg.edit(`${member.toString()} üyesi başarıyla yetkili oldu! <a:green:899337284481077298>`).then(x => x.delete({timeout: 5000}))
-        
-        client.channels.cache.get(conf.yetkiLog).wsend(`${message.author} \`(${message.author.id}\` kişisi ${member} \`(${member.id})\` kişisini yetkiye aldı! <a:green:899337284481077298>`)
-        member.roles.add(conf.yetkiRolleri)
-
+        await coin.findOneAndUpdate({ guildID: member.guild.id, userID: message.author.id }, { $inc: { coin: settings.yetkiCoin } }, { upsert: true });       
+        msg.edit(`${member.toString()} üyesine başarıyla yetki aldırıldı! <a:green:899337284481077298>`).then(x => x.delete({timeout: 5000}))
         await yetkis.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $push: { yetkis: member.user.id } }, { upsert: true });
       } else {
-        
-        msg.edit(`${member.toString()} üyesi, yetkiye alma teklifini reddetti! <a:red:899337291582046228>`).then(x => x.delete({timeout: 5000}))
+        msg.edit(`${member.toString()} üyesi, yetki aldırma teklifini reddetti! <a:red:899337291582046228>`).then(x => x.delete({timeout: 5000}))
       }
-    }).catch(() => msg.edit("<a:red:899337291582046228> Yetki verme işlemi iptal edildi!")).then(x => x.delete({timeout: 5000}));
+    }).catch(() => msg.edit("<a:red:899337291582046228> Yetki aldırma işlemi iptal edildi!")).then(x => x.delete({timeout: 5000}));
   }
 }
