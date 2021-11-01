@@ -6,7 +6,7 @@
 
 # Eksik Kalan ve Tamamlanmamış Yerler
 
-- Ceza bilgilendirme butonundaki kalan süre butonu gelistirilip daha sonra eklenicek.
+- Tüm hatalarını tamamladım sanırım başka hata görürsem yapacağım, düzenlicem.
 
 Bu botta emeği ve codeları bulunan Aris Lesnar' a teşekürlerimi iletiyorum.
 
