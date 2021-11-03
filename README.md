@@ -17,6 +17,7 @@ Bu botta emeği ve codeları bulunan Aris Lesnar' a teşekürlerimi iletiyorum.
 ![image](https://user-images.githubusercontent.com/92666466/139575377-ade118e3-c9b5-4bc8-a3b4-447fdc6325e6.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575560-f6cd46be-5f2f-42b6-adbf-079aa835da73.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575586-93156301-2cc4-45c2-a167-b82d51fa846f.png)
+![image](https://user-images.githubusercontent.com/92666466/140218451-006119ee-7a23-41ce-8f1d-bf8c42f0b560.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575596-53f98cee-5570-4bff-ad13-20393edb2470.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575625-fac22ea2-5911-41b9-9692-9de1d896bd3b.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575362-1562a395-5352-4528-b336-5400ef7abe11.png)
