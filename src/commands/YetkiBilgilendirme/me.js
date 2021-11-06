@@ -15,7 +15,7 @@ const gorev = require("../../schemas/invite");
 const kayitg = require("../../schemas/kayitgorev");
 const mesaj = require("../../schemas/mesajgorev");
 const tagli = require("../../schemas/taggorev");
-const {  xp, miniicon, mesaj2, staff, galp ,Muhabbet ,star , fill, empty, fillStart, emptyEnd, fillEnd, red } = require("../../configs/emojis.json");
+const {  rewards, miniicon, mesaj2, staff, galp ,Muhabbet ,star , fill, empty, fillStart, emptyEnd, fillEnd, red } = require("../../configs/emojis.json");
 const { TeamMember, MessageEmbed } = require("discord.js");
 const { MessageButton,MessageActionRow } = require('discord-buttons');
 
