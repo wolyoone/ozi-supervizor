@@ -1,4 +1,4 @@
-const { voice, mesaj2, star} = require("../../configs/emojis.json")
+const {  voice, mesaj2, star, miniicon } = require("../../configs/emojis.json");
 const messageUserChannel = require("../../schemas/messageUserChannel");
 const voiceUserChannel = require("../../schemas/voiceUserChannel");
 const messageUser = require("../../schemas/messageUser");
@@ -90,7 +90,7 @@ ${inviterData ? `${total} regular`: "Veri bulunmuyor."}
 `, inline: true },
  )
 
-embed.addField("<a:yildizkirmizi:899680497427431424> **Sesli Sohbet İstatistiği**", `
+embed.addField("${star} **Sesli Sohbet İstatistiği**", `
 
 ${voice} **Genel Toplam Ses :** \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
 ${mesaj2} **Genel Toplam Mesaj :** \`${messageData ? messageData.topStat : 0} mesaj\`
@@ -101,9 +101,9 @@ ${mesaj2} **Haftalık Chat :** \`${Number(messageWeekly).toLocaleString()} mesaj
 ${voice} **Günlük Ses :** \`${voiceDaily}\`
 ${mesaj2} **Günlük Chat :** \`${Number(messageDaily).toLocaleString()} mesaj\`
 
-<a:yildizkirmizi:899680497427431424> **Davetleri :** **${total}** (**${regular}** gerçek, **${bonus}** bonus, **${leave}** ayrılmış, **${fake}** fake)
+${star} **Davetleri :** **${total}** (**${regular}** gerçek, **${bonus}** bonus, **${leave}** ayrılmış, **${fake}** fake)
 
-<a:yildizkirmizi:899680497427431424> **Daha geniş çaplı bilgilere erişmek için lütfen aşağıdaki butonları kullanınız!** 
+${star} **Daha geniş çaplı bilgilere erişmek için lütfen aşağıdaki butonları kullanınız!** 
 `, false);
 
       let msg = await message.channel.send({ buttons : [main, sescat, mescat], embed: embed})
@@ -133,13 +133,13 @@ ${voiceDaily}
 `, inline: true },
 )
 
-  embeds.addField("<a:yildizkirmizi:899680497427431424> **Sesli Sohbet İstatistiği**", `
-<:miniicon:899339236724068372> Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
-<:miniicon:899339236724068372> Public Odalar: \`${await category(conf.publicParents)}\`
-<:miniicon:899339236724068372> Secret Odalar: \`${await category(conf.privateParents)}\`
-<:miniicon:899339236724068372> Alone Odalar: \`${await category(conf.aloneParents)}\`
-<:miniicon:899339236724068372> Yönetim Yetkili Odaları: \`${await category(conf.funParents)}\`
-<:miniicon:899339236724068372> Kayıt Odaları: \`${await category(conf.registerParents)}\`
+  embeds.addField("${star} **Sesli Sohbet İstatistiği**", `
+${miniicon} Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
+${miniicon} Public Odalar: \`${await category(conf.publicParents)}\`
+${miniicon} Secret Odalar: \`${await category(conf.privateParents)}\`
+${miniicon} Alone Odalar: \`${await category(conf.aloneParents)}\`
+${miniicon} Yönetim Yetkili Odaları: \`${await category(conf.funParents)}\`
+${miniicon} Kayıt Odaları: \`${await category(conf.registerParents)}\`
  `, false);
 
 msg.edit({
@@ -168,7 +168,7 @@ ${Number(messageDaily).toLocaleString()} mesaj
 \`\`\`
 `, inline: true },
 )
-embeds.addField("<a:yildizkirmizi:899680497427431424> **Mesaj İstatistiği**", `
+embeds.addField("${star} **Mesaj İstatistiği**", `
 ${messageTop}
 `, false);
 msg.edit({
