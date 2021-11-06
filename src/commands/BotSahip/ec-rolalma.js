@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const conf = require("../../configs/sunucuayar.json");
-const { ozinitro, ozinetflix, ozispotifyi, oziexxen, oziblutv} = require("../../configs/emojis.json")
+const { ozinitro, ozinetflix, ozispotify, oziexxen, oziblutv} = require("../../configs/emojis.json")
 
 module.exports = {
   conf: {
