@@ -6,7 +6,7 @@ const banLimit = new Map();
 moment.locale("tr");
 const conf = require("../../configs/sunucuayar.json")
 const settings = require("../../configs/settings.json")
-const { red, green, ceza, Revuu, kirmiziok } = require("../../configs/emojis.json")
+const { red, green, Cezaa, Revuu, kirmiziok } = require("../../configs/emojis.json")
 
 module.exports = {
   conf: {
