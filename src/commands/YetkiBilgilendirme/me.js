@@ -15,7 +15,7 @@ const gorev = require("../../schemas/invite");
 const kayitg = require("../../schemas/kayitgorev");
 const mesaj = require("../../schemas/mesajgorev");
 const tagli = require("../../schemas/taggorev");
-const {  xp, gulucuk, mesaj2, altin, altin2 ,rewards ,star , fill, empty, fillStart, emptyEnd, fillEnd, red } = require("../../configs/emojis.json");
+const {  xp, miniicon, mesaj2, staff, galp ,Muhabbet ,star , fill, empty, fillStart, emptyEnd, fillEnd, red } = require("../../configs/emojis.json");
 const { TeamMember, MessageEmbed } = require("discord.js");
 const { MessageButton,MessageActionRow } = require('discord-buttons');
 
@@ -54,7 +54,7 @@ module.exports = {
     const maxValue1 = "10"
     const coinStatus1 = client.ranks.length > 0 ?
 `**İnvite Görev Durumu :** 
-<a:staff:899680505119780895> ${progressBar1(gorevData ? gorevData.invite : 0, 10, 10)} \`${total2} (${total2}/10)\` 
+${staff} ${progressBar1(gorevData ? gorevData.invite : 0, 10, 10)} \`${total2} (${total2}/10)\` 
 ` : "";
           //
     const kayitgData = await kayitg.findOne({ guildID: message.guild.id, userID: member.user.id });
@@ -62,7 +62,7 @@ module.exports = {
     const maxValue2 = "10"
     const coinStatus2 = client.ranks.length > 0 ?
 `**Kayıt Görev Durumu :**  
-<a:Muhabbet:899339317896429641> ${progressBar1(kayitgData ? kayitgData.kayit : 0, 10, 10)} \`${kayittotal} (${kayittotal}/10)\`
+${Muhabbet} ${progressBar1(kayitgData ? kayitgData.kayit : 0, 10, 10)} \`${kayittotal} (${kayittotal}/10)\`
 ` : "";
           //
     const mesajData = await mesaj.findOne({ guildID: message.guild.id, userID: member.user.id });
@@ -78,7 +78,7 @@ ${mesaj2} ${progressBar1(mesajData ? mesajData.mesaj : 0, 500, 5)} \`${mesajtota
     const maxValue4 = "5"
     const coinStatus4 = client.ranks.length > 0 ?
 `**Taglı Üye Durumu :**  
-<a:galp:899680513806184570> ${progressBar1(tagData ? tagData.tagli : 0, 5, 5)} \`${tagTotal} (${tagTotal}/5)\`
+${galp} ${progressBar1(tagData ? tagData.tagli : 0, 5, 5)} \`${tagTotal} (${tagTotal}/5)\`
 ` : "";
 
 function progressBar1(value, maxValue, size) {
@@ -184,20 +184,20 @@ ${yetkiData ? `${yetkiData.yetkis.length} kişi` : "Veri bulunmuyor."}
 )
   
   
-  embed.addField("<a:yildizkirmizi:899680497427431424> **Sesli Sohbet İstatistiği**", `
-  <:miniicon:899339236724068372> Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
-  <:miniicon:899339236724068372> Public Odalar: \`${await category(conf.publicParents)}\`
-  <:miniicon:899339236724068372> Secret Odalar: \`${await category(conf.privateParents)}\`
-  <:miniicon:899339236724068372> Alone Odalar: \`${await category(conf.aloneParents)}\`
-  <:miniicon:899339236724068372> Yönetim Yetkili Odaları: \`${await category(conf.funParents)}\`
-  <:miniicon:899339236724068372> Kayıt Odaları: \`${await category(conf.registerParents)}\`
+  embed.addField("${star} **Sesli Sohbet İstatistiği**", `
+  ${miniicon} Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
+  ${miniicon} Public Odalar: \`${await category(conf.publicParents)}\`
+  ${miniicon} Secret Odalar: \`${await category(conf.privateParents)}\`
+  ${miniicon} Alone Odalar: \`${await category(conf.aloneParents)}\`
+  ${miniicon} Yönetim Yetkili Odaları: \`${await category(conf.funParents)}\`
+  ${miniicon} Kayıt Odaları: \`${await category(conf.registerParents)}\`
    `, false);
   
   
-  embed.addField("<a:yildizkirmizi:899680497427431424> **Mesaj İstatistiği**", `
-  <:miniicon:899339236724068372> Toplam: \`${messageData ? messageData.topStat : 0}\`
-  <:miniicon:899339236724068372> Haftalık Mesaj: \`${Number(messageWeekly).toLocaleString()} mesaj\`
-  <:miniicon:899339236724068372> Günlük Mesaj: \`${Number(messageDaily).toLocaleString()} mesaj\`
+  embed.addField("${star} **Mesaj İstatistiği**", `
+  ${miniicon} Toplam: \`${messageData ? messageData.topStat : 0}\`
+  ${miniicon} Haftalık Mesaj: \`${Number(messageWeekly).toLocaleString()} mesaj\`
+  ${miniicon} Günlük Mesaj: \`${Number(messageDaily).toLocaleString()} mesaj\`
    `, false);
 
    
@@ -214,21 +214,21 @@ ${yetkiData ? `${yetkiData.yetkis.length} kişi` : "Veri bulunmuyor."}
       ${member.toString()}, (${member.roles.highest}) üyesinin \`${moment(Date.now()).format("LLL")}\` tarihinden  itibaren \`${message.guild.name}\` sunucusunda puanlama tablosu aşağıda belirtilmiştir.
       `) 
       
-      .addField("<a:yildizkirmizi:899680497427431424> **Puan Durumu:**", `
+      .addField("${star} **Puan Durumu:**", `
       Puanınız: \`${coinData ? Math.floor(coinData.coin) : 0}\`, Gereken Puan: \`${maxValue.coin}\`
       ${progressBar(coinData ? coinData.coin : 0, maxValue.coin, 9)} \`${coinData ? coinData.coin : 0} / ${maxValue.coin}\`
        `, false)
       
-      .addField("<a:yildizkirmizi:899680497427431424> **Puan Detayları:**", `
-      <:miniicon:899339236724068372> Kayıtlar: \`${toplamData ? toplamData.toplams.length : 0} (Puan Etkisi: +${toplamData ? toplamData.toplams.length*5.5 : 0})\`
-      <:miniicon:899339236724068372> Taglılar: \`${taggedData ? taggedData.taggeds.length : 0} (Puan Etkisi: +${taggedData ? taggedData.taggeds.length*25 : 0})\`
-      <:miniicon:899339236724068372> Davetler: \`${total} (Puan Etkisi: +${total*15})\`
-      <:miniicon:899339236724068372> Yetkililer: \`${yetkiData ? yetkiData.yetkis.length : 0} kişi (Puan Etkisi: +${yetkiData ? yetkiData.yetkis.length*30 : 0})\`
-      <:miniicon:899339236724068372> Chat Puan: \`${messageData ? messageData.topStat : 0} mesaj (Puan Etkisi: +${messageData ? messageData.topStat*2 : 0})\`
-      <:miniicon:899339236724068372> Sesli Puan: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("m")} dakika (Puan Etkisi: +${moment.duration(voiceData ? voiceData.topStat : 0).format("m")*4})\`
+      .addField("${star} **Puan Detayları:**", `
+      ${miniicon} Kayıtlar: \`${toplamData ? toplamData.toplams.length : 0} (Puan Etkisi: +${toplamData ? toplamData.toplams.length*5.5 : 0})\`
+      ${miniicon} Taglılar: \`${taggedData ? taggedData.taggeds.length : 0} (Puan Etkisi: +${taggedData ? taggedData.taggeds.length*25 : 0})\`
+      ${miniicon} Davetler: \`${total} (Puan Etkisi: +${total*15})\`
+      ${miniicon} Yetkililer: \`${yetkiData ? yetkiData.yetkis.length : 0} kişi (Puan Etkisi: +${yetkiData ? yetkiData.yetkis.length*30 : 0})\`
+      ${miniicon} Chat Puan: \`${messageData ? messageData.topStat : 0} mesaj (Puan Etkisi: +${messageData ? messageData.topStat*2 : 0})\`
+      ${miniicon} Sesli Puan: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("m")} dakika (Puan Etkisi: +${moment.duration(voiceData ? voiceData.topStat : 0).format("m")*4})\`
        `, false)
       
-      .addField("**<a:yildizkirmizi:899680497427431424> Yetki Durumu:** ", `
+      .addField("${star} **Yetki Durumu:**", `
       ${coinStatus}
        `, false);  
 
@@ -245,31 +245,31 @@ msg.edit({
     .setDescription(`
     ${member.toString()}, (${member.roles.highest}) üyesinin \`${moment(Date.now()).format("LLL")}\` tarihinden itibaren \`${message.guild.name}\` sunucusunda genel puanlama tablosu aşağıda belirtilmiştir.
 `) 
-.addField("<a:yildizkirmizi:899680497427431424> **Puan Detayları:**", `
-<:miniicon:899339236724068372> Kayıt: (\`Puan Etkisi: +${toplamData ? toplamData.toplams.length*5.5 : 0}\`)
-<:miniicon:899339236724068372> Taglı: (\`Puan Etkisi: +${taggedData ? taggedData.taggeds.length*25 : 0}\`)
-<:miniicon:899339236724068372> Davet: (\`Puan Etkisi: +${total*15}\`)
-<:miniicon:899339236724068372> Yetkili: (\`Puan Etkisi: +${yetkiData ? yetkiData.yetkis.length*30 : 0}\`)
-<:miniicon:899339236724068372> Toplam Ses: (\`Puan Etkisi: +${moment.duration(voiceData ? voiceData.topStat : 0).format("m")*4}\`)
-<:miniicon:899339236724068372> Toplam Mesaj: (\`Puan Etkisi: +${messageData ? messageData.topStat*2 : 0}\`)
-<:miniicon:899339236724068372> Toplam Aldığın Cezalar : ${cezapuanData ? cezapuanData.cezapuan.length : 0} (\`Toplam ${cezaData ? cezaData.ceza.length : 0}\`)
+.addField("${star} **Puan Detayları:**", `
+${miniicon} Kayıt: (\`Puan Etkisi: +${toplamData ? toplamData.toplams.length*5.5 : 0}\`)
+${miniicon} Taglı: (\`Puan Etkisi: +${taggedData ? taggedData.taggeds.length*25 : 0}\`)
+${miniicon} Davet: (\`Puan Etkisi: +${total*15}\`)
+${miniicon} Yetkili: (\`Puan Etkisi: +${yetkiData ? yetkiData.yetkis.length*30 : 0}\`)
+${miniicon} Toplam Ses: (\`Puan Etkisi: +${moment.duration(voiceData ? voiceData.topStat : 0).format("m")*4}\`)
+${miniicon} Toplam Mesaj: (\`Puan Etkisi: +${messageData ? messageData.topStat*2 : 0}\`)
+${miniicon} Toplam Aldığın Cezalar : ${cezapuanData ? cezapuanData.cezapuan.length : 0} (\`Toplam ${cezaData ? cezaData.ceza.length : 0}\`)
  `, false)
 
-.addField("<a:yildizkirmizi:899680497427431424> **Net Puanlama Bilgisi**", `
-<:miniicon:899339236724068372> Kayıt işlemi yaparak, \`+5.5\` puan kazanırsın.
-<:miniicon:899339236724068372> Taglı üye belirleyerek, \`+25\` puan kazanırsınız.
-<:miniicon:899339236724068372> İnsanları davet ederek, \`+15\` puan kazanırsın.
-<:miniicon:899339236724068372> İnsanları yetkili yaparak, \`+30\` puan kazanırsın.
-<:miniicon:899339236724068372> Seste kalarak, ortalama olarak \`+4\` puan kazanırsınız.
-<:miniicon:899339236724068372> Yazı yazarak, ortalama olarak, \`+2\` puan kazanırsınız.
+.addField("${star} **Net Puanlama Bilgisi**", `
+${miniicon} Kayıt işlemi yaparak, \`+5.5\` puan kazanırsın.
+${miniicon} Taglı üye belirleyerek, \`+25\` puan kazanırsınız.
+${miniicon} İnsanları davet ederek, \`+15\` puan kazanırsın.
+${miniicon} İnsanları yetkili yaparak, \`+30\` puan kazanırsın.
+${miniicon} Seste kalarak, ortalama olarak \`+4\` puan kazanırsınız.
+${miniicon} Yazı yazarak, ortalama olarak, \`+2\` puan kazanırsınız.
  `, false)
 
-.addField("<a:yildizkirmizi:899680497427431424> **Puan Durumu:**", `
+.addField("${star} **Puan Durumu:**", `
 Puanınız: \`${coinData ? Math.floor(coinData.coin) : 0}\`, Gereken Puan: \`${maxValue.coin}\`
 ${progressBar(coinData ? coinData.coin : 0, maxValue.coin, 9)} \`${coinData ? coinData.coin : 0} / ${maxValue.coin}\`
  `, false)
 
-.addField("<a:yildizkirmizi:899680497427431424> **Yetki Durumu:** ", `
+.addField("${star} **Yetki Durumu:** ", `
 ${coinStatus}
  `, false)
 
@@ -293,7 +293,7 @@ msg.edit({
       ${coinStatus4} **Ödülün :** ${rewards} \`30\` Coin\n
       `)
 
-      .addField("**<a:yildizkirmizi:899680497427431424> Yetki Durumu:** ", `
+      .addField("**${star} Yetki Durumu:** ", `
       ${coinStatus}
        `, false); 
 
@@ -348,20 +348,20 @@ ${yetkiData ? `${yetkiData.yetkis.length} kişi` : "Veri bulunmuyor."}
 )
   
   
-  iptal.addField("<a:yildizkirmizi:899680497427431424> **Sesli Sohbet İstatistiği**", `
-  <:miniicon:899339236724068372> Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
-  <:miniicon:899339236724068372> Public Odalar: \`${await category(conf.publicParents)}\`
-  <:miniicon:899339236724068372> Secret Odalar: \`${await category(conf.privateParents)}\`
-  <:miniicon:899339236724068372> Alone Odalar: \`${await category(conf.aloneParents)}\`
-  <:miniicon:899339236724068372> Yönetim Yetkili Odaları: \`${await category(conf.funParents)}\`
-  <:miniicon:899339236724068372> Kayıt Odaları: \`${await category(conf.registerParents)}\`
+  iptal.addField("${star} **Sesli Sohbet İstatistiği**", `
+  ${miniicon} Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
+  ${miniicon} Public Odalar: \`${await category(conf.publicParents)}\`
+  ${miniicon} Secret Odalar: \`${await category(conf.privateParents)}\`
+  ${miniicon} Alone Odalar: \`${await category(conf.aloneParents)}\`
+  ${miniicon} Yönetim Yetkili Odaları: \`${await category(conf.funParents)}\`
+  ${miniicon} Kayıt Odaları: \`${await category(conf.registerParents)}\`
    `, false);
   
   
-   iptal.addField("<a:yildizkirmizi:899680497427431424> **Mesaj İstatistiği**", `
-  <:miniicon:899339236724068372> Toplam: \`${messageData ? messageData.topStat : 0}\`
-  <:miniicon:899339236724068372> Haftalık Mesaj: \`${Number(messageWeekly).toLocaleString()} mesaj\`
-  <:miniicon:899339236724068372> Günlük Mesaj: \`${Number(messageDaily).toLocaleString()} mesaj\`
+   iptal.addField("${star} **Mesaj İstatistiği**", `
+  ${miniicon} Toplam: \`${messageData ? messageData.topStat : 0}\`
+  ${miniicon} Haftalık Mesaj: \`${Number(messageWeekly).toLocaleString()} mesaj\`
+  ${miniicon} Günlük Mesaj: \`${Number(messageDaily).toLocaleString()} mesaj\`
    `, false);
 
     msg.edit({
