@@ -21,6 +21,7 @@ module.exports = {
         { name: "kirmiziok", url: "https://cdn.discordapp.com/emojis/901441275381817426.gif?size=44" },
         { name: "Revuu", url: "https://cdn.discordapp.com/emojis/901441322152493066.gif?size=44" },
         { name: "Mute", url: "https://cdn.discordapp.com/emojis/901441287469809706.png?size=44" },
+        { name: "ceza", url: "https://cdn.discordapp.com/emojis/901441311050178591.png?size=44" },
         { name: "Jail", url: "https://cdn.discordapp.com/emojis/903566151727087686.png?size=96" },
         { name: "Book", url: "https://cdn.discordapp.com/emojis/903564842978402304.png?size=96" },
         { name: "Kilit", url: "https://cdn.discordapp.com/emojis/903564832387760128.png?size=96" },
