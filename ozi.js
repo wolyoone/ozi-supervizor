@@ -4,6 +4,7 @@ const client = (global.client = new Client({ fetchAllMembers: true }));
 require('discord-buttons')(client)
 const settings = require("./src/configs/settings.json");
 const conf = require("./src/configs/sunucuayar.json");
+const { Mute2, Unmute} = require("./src/configs/emojis.json");
 const fs = require("fs");
 client.commands = new Collection();
 client.aliases = new Collection();
@@ -132,11 +133,11 @@ client.on('message', async message => {
           let filtered = messages.filter((x) => x.author.id === message.author.id).array().splice(0, 7);
           message.channel.bulkDelete(filtered);
                 message.member.roles.add(conf.chatMute);
-                message.channel.send('<:tik:899339342986739802> Sohbet kanallarını kirletme sebebiyle \`3 dakika\` süresince susturuldunuz, mesajlar temizlendi. Lütfen yavaşlayın. <@'+message.author.id+'>').then(ozixd => ozixd.delete({ timeout: 5000 }))
+                message.channel.send('${Mute2} Sohbet kanallarını kirletme sebebiyle \`3 dakika\` süresince susturuldunuz, mesajlar temizlendi. Lütfen yavaşlayın. <@'+message.author.id+'>').then(ozixd => ozixd.delete({ timeout: 5000 }))
 
                 setTimeout(() => {
                     message.member.roles.remove(conf.chatMute);
-                    message.channel.send('<:tik:899339351283105812> Sohbet kanallarını kirletme sebebiyle 3 dakika süresince susturmanız bitti. Lütfen tekrarlamayınız. <@'+message.author.id+'>').then(ozixd => ozixd.delete({ timeout: 5000 }))
+                    message.channel.send('${Unmute} Sohbet kanallarını kirletme sebebiyle 3 dakika süresince susturmanız bitti. Lütfen tekrarlamayınız. <@'+message.author.id+'>').then(ozixd => ozixd.delete({ timeout: 5000 }))
                 }, 180000);//9000000
             } else {
                 userData.msgCount = msgCount;
@@ -165,10 +166,10 @@ client.on("message", async message => {
 
  if (mentionRegex.test(message.content) && message.content.match(mentionRegex).length >= 4) {
         message.member.roles.add(conf.chatMute);
-        message.channel.send('<:tik:899339342986739802> Birden çok kişiyi etiketlediğin için \`15 dakika\` boyunca susturuldun. <@'+message.author.id+'>');
+        message.channel.send('${Mute2} Birden çok kişiyi etiketlediğin için \`15 dakika\` boyunca susturuldun. <@'+message.author.id+'>');
         setTimeout(() => {
             message.member.roles.remove(conf.chatMute);
-       message.channel.send('<:tik:899339351283105812> Birden çok kişiyi etiketleme sebebiyle olan, Muten açıldı lütfen tekrar insanları etiketleme. <@'+message.author.id+'>')
+       message.channel.send('${Unmute} Birden çok kişiyi etiketleme sebebiyle olan, Muten açıldı lütfen tekrar insanları etiketleme. <@'+message.author.id+'>')
         }, 900000);//9000000
         if (message.deletable) message.delete({ timeout: 5000 }).catch(console.error);
     }
