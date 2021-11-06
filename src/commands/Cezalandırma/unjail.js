@@ -3,7 +3,7 @@ moment.locale("tr");
 const penals = require("../../schemas/penals");
 const conf = require("../../configs/sunucuayar.json")
 const settings = require("../../configs/settings.json")
-const { red, green} = require("../../configs/emojis.json")
+const { red, green, Revuu} = require("../../configs/emojis.json")
 module.exports = {
   conf: {
     aliases: ["unjail"],
@@ -53,7 +53,7 @@ module.exports = {
       .setDescription(`
       ${member.toString()} Adlı Kişinin Jaili Kaldırıldı
       
-<a:Revuu:901441322152493066> Jaili Kaldıran Kişi : ${message.author} (\`${message.author.id}\`)
+${Revuu} Jaili Kaldıran Kişi : ${message.author} (\`${message.author.id}\`)
           `)
           .setFooter(`${moment(Date.now()).format("LLL")}`)
     message.guild.channels.cache.get(conf.jailLogChannel).wsend(log);
