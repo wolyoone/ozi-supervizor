@@ -1,4 +1,6 @@
 const {MessageMenuOption , MessageMenu , MessageActionRow} = require("discord-buttons")
+const { star} = require("../../configs/emojis.json")
+
 module.exports = {
   conf: {
     aliases: ["kpanel"],
@@ -11,7 +13,7 @@ module.exports = {
 
      client.api.channels(message.channel.id).messages.post({
             data: {
-                "content": `<a:yildizkirmizi:899680497427431424>\`${message.guild.name}\` Sunucusu içerisi;\nUlaşmak istediğiniz bilgilere menüden tıklamanız yeterli olucaktır.`,
+                "content": `${star} \`${message.guild.name}\` Sunucusu içerisi;\nUlaşmak istediğiniz bilgilere menüden tıklamanız yeterli olucaktır.`,
                 "components": [{
                         "type": 1, "components": [{
                         "type": 3, "custom_id": "kpanel", "options": [
