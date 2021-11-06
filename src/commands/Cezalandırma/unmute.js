@@ -3,7 +3,7 @@ moment.locale("tr");
 const penals = require("../../schemas/penals");
 const conf = require("../../configs/sunucuayar.json")
 const settings = require("../../configs/settings.json")
-const {red, green} = require("../../configs/emojis.json")
+const {red, green, Revuu} = require("../../configs/emojis.json")
 module.exports = {
   conf: {
     aliases: ["unmute","uncmute"],
@@ -55,7 +55,7 @@ module.exports = {
       .setDescription(`
       ${member.toString()} Adlı Kişinin Chat Mutesi Kaldırıldı
       
-<a:Revuu:901441322152493066> Mute Kaldıran Kişi : ${message.author} (\`${message.author.id}\`)
+${Revuu} Mute Kaldıran Kişi : ${message.author} (\`${message.author.id}\`)
           `)
           .setFooter(`${moment(Date.now()).format("LLL")}`)
     message.guild.channels.cache.get(conf.cmuteLogChannel).wsend(log);
