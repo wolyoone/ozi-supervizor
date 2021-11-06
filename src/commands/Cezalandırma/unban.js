@@ -3,7 +3,7 @@ moment.locale("tr");
 const penals = require("../../schemas/penals");
 const conf = require("../../configs/sunucuayar.json")
 const settings = require("../../configs/settings.json")
-const { red, green } = require("../../configs/emojis.json")
+const { red, green, ceza, Revuu, kirmiziok } = require("../../configs/emojis.json")
 module.exports = {
   conf: {
     aliases: ["unban"],
@@ -42,9 +42,9 @@ module.exports = {
       .setAuthor(ban.user.username, ban.user.avatarURL({ dynamic: true, size: 2048 }))
       .setColor("#2f3136")
       .setDescription(`
-<:ceza:901441311050178591> Banı Kaldıran Üye: \`(${ban.user.username.replace(/\`/g, "")} - ${ban.user.id})\`
-<a:Revuu:901441322152493066> Banı Kaldıran Yetkili: ${message.author} \`${message.author.id}\`
-<a:kirmiziok:901441275381817426> Banın Kaldırılma Tarihi: \`${moment(Date.now()).format("LLL")}\`
+${ceza} Banı Kaldıran Üye: \`(${ban.user.username.replace(/\`/g, "")} - ${ban.user.id})\`
+${Revuu} Banı Kaldıran Yetkili: ${message.author} \`${message.author.id}\`
+${kirmiziok} Banın Kaldırılma Tarihi: \`${moment(Date.now()).format("LLL")}\`
       `)
     message.guild.channels.cache.get(conf.banLogChannel).wsend(log);
   },
