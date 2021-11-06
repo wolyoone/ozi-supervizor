@@ -4,9 +4,9 @@
 - Sizlerle geliştirmiş olduğum botlardan biriyle tanıştırmak istiyorum.. 
 - Invite, Moderasyon, Register, Stats, Buton sistemleri.
 
-# Eksik Kalan ve Tamamlanmamış Yerler
+# Yapmanız gereken adımlar
 
-- Tüm hatalarını tamamladım sanırım başka hata görürsem yapacağım, düzenlicem.
+- Events Select Menu de ki rol idleri doldurmanız lazım, emoji sunucu ayar vesaire ayarladıktan sonra baslatmaya geldik npm i yapıyoruz ardından axios modülü yüklenmediği için npm i axios yapiyoruz eğer canvas yüklenmezse bazılarında hata oluyomus npm i canvas yapabilirsiniz botunuz hazır esenlikle kalın.
 
 Bu botta emeği ve codeları bulunan Aris Lesnar' a teşekürlerimi iletiyorum.
 
