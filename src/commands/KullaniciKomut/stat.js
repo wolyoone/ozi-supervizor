@@ -40,6 +40,7 @@ run: async (client, message, args, embed, prefix) => {
       const Active1 = await messageUserChannel.find({ guildID: message.guild.id, userID: member.id }).sort({ channelData: -1 });
       const Active2 = await voiceUserChannel.find({ guildID: message.guild.id, userID: member.id }).sort({ channelData: -1 });
       let messageTop;
+      Active1.length > 0 ? messageTop = Active1.splice(0, 5).map(x => `<#${x.channelID}>: \`${Number(x.channelData).toLocaleString()} mesaj\``).join("\n") : messageTop = "Veri bulunmuyor."
 
       const messageData = await messageUser.findOne({ guildID: message.guild.id, userID: member.id });
       const voiceData = await voiceUser.findOne({ guildID: message.guild.id, userID: member.id });
