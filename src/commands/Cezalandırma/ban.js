@@ -51,7 +51,7 @@ module.exports = {
 
     const log = embed
       .setDescription(`
-${ceza} Banlanan Üye: ${member ? member.toString() : ""} \`${user.id}\`
+${Cezaa} Banlanan Üye: ${member ? member.toString() : ""} \`${user.id}\`
 ${Revuu} Banlayan Yetkili: ${message.author} \`${message.author.id}\`
 ${kirmiziok} Ban Sebebi: \`${reason}\`
       `)
