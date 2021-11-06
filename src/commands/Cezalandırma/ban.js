@@ -6,7 +6,8 @@ const banLimit = new Map();
 moment.locale("tr");
 const conf = require("../../configs/sunucuayar.json")
 const settings = require("../../configs/settings.json")
-const { red, green } = require("../../configs/emojis.json")
+const { red, green, ceza, Revuu, kirmiziok } = require("../../configs/emojis.json")
+
 module.exports = {
   conf: {
     aliases: ["ban","yargı"],
@@ -50,9 +51,9 @@ module.exports = {
 
     const log = embed
       .setDescription(`
-<:ceza:901441311050178591> Banlanan Üye: ${member ? member.toString() : ""} \`${user.id}\`
-<a:Revuu:901441322152493066> Banlayan Yetkili: ${message.author} \`${message.author.id}\`
-<a:kirmiziok:901441275381817426> Ban Sebebi: \`${reason}\`
+${ceza} Banlanan Üye: ${member ? member.toString() : ""} \`${user.id}\`
+${Revuu} Banlayan Yetkili: ${message.author} \`${message.author.id}\`
+${kirmiziok} Ban Sebebi: \`${reason}\`
       `)
       .setFooter(`${moment(Date.now()).format("LLL")}`)
       message.guild.channels.cache.get(conf.banLogChannel).send(log);
