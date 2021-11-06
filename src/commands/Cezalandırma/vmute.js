@@ -7,7 +7,7 @@ moment.locale("tr");
 const ms = require("ms");
 const conf = require("../../configs/sunucuayar.json")
 const settings = require("../../configs/settings.json")
-const {red, green} = require("../../configs/emojis.json")
+const { red, green, Mute, revusome, kirmiziok } = require("../../configs/emojis.json")
 module.exports = {
   conf: {
     aliases: ["vmute","voicemute"],
@@ -74,9 +74,9 @@ module.exports = {
     .setDescription(`
 ${member.toString()} Adlı Kişiye Ses Mutesi Atıldı
 
-<:tik:901441287469809706> Mute Atan Kişi : ${message.author} (\`${message.author.id}\`)
-<:tik:901441419363889172> Ceza Süresi: \`${time}\`
-<a:kirmiziok:901441275381817426> Ceza Sebebi: \`${reason}\`
+${Mute} Mute Atan Kişi : ${message.author} (\`${message.author.id}\`)
+${revusome} Ceza Süresi: \`${time}\`
+${kirmiziok} Ceza Sebebi: \`${reason}\`
     `)
     .setFooter(`${moment(Date.now()).format("LLL")}`)
     message.guild.channels.cache.get(conf.vmuteLogChannel).send(log);
