@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const inviterSchema = require("../../schemas/inviter");
 const inviteMemberSchema = require("../../schemas/inviteMember");
 const conf = require("../../configs/sunucuayar.json")
+const {  kirmiziok, star, miniicon } = require("../../configs/emojis.json");
 module.exports = {
   conf: {
     aliases: ["invites"],
@@ -28,9 +29,9 @@ module.exports = {
       .setAuthor(member.user.username, member.user.avatarURL({ dynamic: true }))
       .setThumbnail(member.user.avatarURL({ dynamic: true, size: 2048 }))
       .setDescription(`
-<a:yildizkirmizi:899680497427431424> Toplam **${total}** davet. \`(${regular} gerçek, ${bonus} bonus, ${leave} ayrılmış, ${fake} fake)\`
+${star} Toplam **${total}** davet. \`(${regular} gerçek, ${bonus} bonus, ${leave} ayrılmış, ${fake} fake)\`
       
-<a:kirmiziok:901441275381817426> Günlük: \`${daily}\`, Haftalık: \`${weekly}\`, Taglı: \`${tagged}\`
+${kirmiziok} Günlük: \`${daily}\`, Haftalık: \`${weekly}\`, Taglı: \`${tagged}\`
       `);
 
     message.channel.send(embed);
