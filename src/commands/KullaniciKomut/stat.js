@@ -90,7 +90,7 @@ ${inviterData ? `${total} regular`: "Veri bulunmuyor."}
 `, inline: true },
  )
 
-embed.addField("${star} **Sesli Sohbet İstatistiği**", `
+embed.addField(`${star} **Sesli Sohbet İstatistiği**`, `
 
 ${voice} **Genel Toplam Ses :** \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
 ${mesaj2} **Genel Toplam Mesaj :** \`${messageData ? messageData.topStat : 0} mesaj\`
@@ -133,7 +133,7 @@ ${voiceDaily}
 `, inline: true },
 )
 
-  embeds.addField("${star} **Sesli Sohbet İstatistiği**", `
+  embeds.addField(`${star} **Sesli Sohbet İstatistiği**`, `
 ${miniicon} Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika]")}\`
 ${miniicon} Public Odalar: \`${await category(conf.publicParents)}\`
 ${miniicon} Secret Odalar: \`${await category(conf.privateParents)}\`
@@ -168,7 +168,7 @@ ${Number(messageDaily).toLocaleString()} mesaj
 \`\`\`
 `, inline: true },
 )
-embeds.addField("${star} **Mesaj İstatistiği**", `
+embeds.addField(`${star} **Mesaj İstatistiği**`, `
 ${messageTop}
 `, false);
 msg.edit({
