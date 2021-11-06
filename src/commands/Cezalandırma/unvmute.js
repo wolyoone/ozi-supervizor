@@ -5,7 +5,7 @@ const banLimit = new Map();
 moment.locale("tr");
 const penals = require("../../schemas/penals");
 const conf = require("../../configs/sunucuayar.json")
-const { red, green } = require("../../configs/emojis.json")
+const { red, green , Revuu} = require("../../configs/emojis.json")
 module.exports = {
   conf: {
     aliases: ["unvmute"],
@@ -54,7 +54,7 @@ module.exports = {
       .setDescription(`
       ${member.toString()} Adlı Kişinin Ses Mutesi Kaldırıldı
       
-<a:Revuu:901441322152493066> Mute Kaldıran Kişi : ${message.author} (\`${message.author.id}\`)
+${Revuu} Mute Kaldıran Kişi : ${message.author} (\`${message.author.id}\`)
           `)
           .setFooter(`${moment(Date.now()).format("LLL")}`)
     message.guild.channels.cache.get(conf.vmuteLogChannel).wsend(log);
