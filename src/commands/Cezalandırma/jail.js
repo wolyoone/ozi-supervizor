@@ -7,7 +7,7 @@ const ms = require("ms")
 moment.locale("tr");
 const conf = require("../../configs/sunucuayar.json")
 const settings = require("../../configs/settings.json")
-const { green, red } = require(`../../configs/emojis.json`)
+const { red, green, Revuu, kirmiziok } = require("../../configs/emojis.json")
 module.exports = {
   conf: {
     aliases: ["jail","reklam"],
@@ -55,8 +55,8 @@ module.exports = {
       .setDescription(`
 ${member.toString()} Adlı Kişiye Jail Atıldı
 
-<a:Revuu:901441322152493066> Jail Atan Kişi : ${message.author} (\`${message.author.id}\`)
-<a:kirmiziok:901441275381817426> Ceza Sebebi: \`${reason}\`
+${Revuu} Jail Atan Kişi : ${message.author} (\`${message.author.id}\`)
+${kirmiziok} Ceza Sebebi: \`${reason}\`
       `)
       .setFooter(`${moment(Date.now()).format("LLL")}`)
 
