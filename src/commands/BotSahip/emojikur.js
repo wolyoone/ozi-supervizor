@@ -11,6 +11,7 @@ module.exports = {
   run: async (client, message, args) => {
     const emojis = [
         { name: "star", url: "https://cdn.discordapp.com/emojis/899680497427431424.gif?size=44" },
+        { name: "revusome", url: "https://cdn.discordapp.com/emojis/901441419363889172.png?size=96" },
         { name: "miniicon", url: "https://cdn.discordapp.com/emojis/899339236724068372.png?size=44" },
         { name: "red", url: "https://cdn.discordapp.com/attachments/827439712834158622/827439875170500629/red.gif" },
         { name: "green", url: "https://cdn.discordapp.com/attachments/827439712834158622/827439878664486913/green.gif" },
