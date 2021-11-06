@@ -3,7 +3,7 @@ moment.locale("tr");
 const penals = require("../../schemas/penals");
 const conf = require("../../configs/sunucuayar.json")
 const settings = require("../../configs/settings.json")
-const { red, green, ceza, Revuu, kirmiziok } = require("../../configs/emojis.json")
+const { red, green, Cezaa, Revuu, kirmiziok } = require("../../configs/emojis.json")
 module.exports = {
   conf: {
     aliases: ["unban"],
@@ -42,7 +42,7 @@ module.exports = {
       .setAuthor(ban.user.username, ban.user.avatarURL({ dynamic: true, size: 2048 }))
       .setColor("#2f3136")
       .setDescription(`
-${ceza} Banı Kaldıran Üye: \`(${ban.user.username.replace(/\`/g, "")} - ${ban.user.id})\`
+${Cezaa} Banı Kaldıran Üye: \`(${ban.user.username.replace(/\`/g, "")} - ${ban.user.id})\`
 ${Revuu} Banı Kaldıran Yetkili: ${message.author} \`${message.author.id}\`
 ${kirmiziok} Banın Kaldırılma Tarihi: \`${moment(Date.now()).format("LLL")}\`
       `)
