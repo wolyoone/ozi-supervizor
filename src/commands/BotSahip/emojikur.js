@@ -1,6 +1,3 @@
-const { Database } = require("ark.db");
-const db = new Database("/src/configs/emojis.json");
-
 module.exports = {
   conf: {
     aliases: [],
@@ -49,9 +46,7 @@ module.exports = {
         { name : "ozinitro", url: "https://cdn.discordapp.com/emojis/899337278047006831.png?size=44"}
     ]
     emojis.forEach(async (x) => {
-      if (message.guild.emojis.cache.find((e) => x.name === e.name)) return db.set(x.name, message.guild.emojis.cache.find((e) => x.name === e.name).toString());
       const emoji = await message.guild.emojis.create(x.url, x.name);
-      await db.set(x.name, emoji.toString());
       message.channel.send(`\`${x.name}\` isimli emoji oluşturuldu! (${emoji.toString()})`);
     });
     },
