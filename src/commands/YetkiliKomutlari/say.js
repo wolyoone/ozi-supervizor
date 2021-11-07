@@ -15,16 +15,15 @@ module.exports = {
     }
     let Tag = conf.tag 
     var TotalMember = message.guild.memberCount
-           var Taglı  = message.guild.members.cache.filter(b => b.roles.cache.has("899273632541470755")).size || 0;
-           var Online = message.guild.members.cache.filter(off => off.presence.status !== 'offline').size;
-           var Voice = message.guild.members.cache.filter(s => s.voice.channel).size;
+           let tag = await message.guild.members.cache.filter(member => member.user.username.includes(Tag)).size;
+           let sesli = message.guild.channels.cache.filter(channel => channel.type == "voice").map(channel => channel.members.size).reduce((a, b) => a + b);
            message.channel.send(embed
                .setColor('RANDOM')
                .setDescription(`
-\`•\` Sunucumuzda toplam **${TotalMember}** kullanıcı bulunmaktadır.
-\`•\` Aktif **${Online}** kullanıcı bulunmaktadır.
-\`•\` Tagımızı alan toplam **${Taglı}** kullanıcı bulunmaktadır.
-\`•\` Ses Kanallarında **${Voice}** kullanıcı bulunmaktadır.`)
+\`❯\` Şu anda toplam **${sesli}** kişi seslide.
+\`❯\` Sunucuda **${message.guild.memberCount}** adet üye var (**${message.guild.members.cache.filter(member => member.presence.status !== "offline").size}** Aktif)
+\`❯\` Toplamda **${tag}** kişi tagımızı alarak bizi desteklemiş.
+\`❯\` Toplamda **${message.guild.premiumSubscriptionCount}** adet boost basılmış! ve Sunucu **${message.guild.premiumTier}** seviye`)
  )
  
    },
