@@ -12,10 +12,10 @@ const { star, green, red } = require("../configs/emojis.json")
 module.exports = async (member) => {
   let guvenilirlik = Date.now()-member.user.createdTimestamp < 1000*60*60*24*7;
   if (guvenilirlik) {
-  if(ayar.fakeAccRole) member.roles.set(ayar.fakeAccRole).catch();
+  if(ayar.fakeAccRole) member.roles.add(ayar.fakeAccRole).catch();
   } else if(ayar.unregRoles) member.roles.add(ayar.unregRoles).catch();
-  if (member.user.username.includes(ayar.tag)) { member.setNickname(`✬ İsim ' Yaş`).catch(); }
-  else { member.setNickname(`✦ İsim ' Yaş`).catch();}
+  if (member.user.username.includes(ayar.tag)) { member.setNickname(`${ayar.tag} İsim ' Yaş`).catch(); }
+  else { member.setNickname(`${ayar.ikinciTag} İsim ' Yaş`).catch();}
   
   if (member.user.username.includes(ayar.tag)) {
     await member.roles.add(ayar.ekipRolu)
