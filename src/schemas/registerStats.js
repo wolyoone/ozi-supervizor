@@ -16,7 +16,8 @@ const schema = Schema({
 	kız: { type: Number, default: 0 },
 	kız24: { type: Number, default: 0 },
 	kız7: { type: Number, default: 0 },
-	kız14: { type: Number, default: 0 }
+	kız14: { type: Number, default: 0 },
+        tagMode: Boolean,
 });
 
 module.exports = model("registerStats", schema);
