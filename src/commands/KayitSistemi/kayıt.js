@@ -60,8 +60,8 @@ run: async (client, message, args, embed, prefix) => {
 
    const tagModedata = await regstats.findOne({ guildID: message.guild.id })
     if (tagModedata && tagModedata.tagMode === true) {
-    if (!uye.roles.cache.has(ayar.ekipRolu) && !uye.roles.cache.has(ayar.vipRole) && !uye.roles.cache.has(ayar.boosterRolu)) return message.lineReply(embed.setDescription(`${uye.toString()}, Adlı kullanıcıda tag bulunmadığı için işlem gerçekleştirilemedi.`));
-   return }
+    if(!uye.user.username.includes(ayar.tag) && !uye.roles.cache.has(ayar.vipRole) && !uye.roles.cache.has(ayar.boosterRolu)) return message.lineReply(embed.setDescription(`${uye.toString()} isimli üyenin kullanıcı adında tagımız (\`${ayar.tag}\`) olmadığı, <@&${ayar.boosterRolu}>, <@&${ayar.vipRole}> Rolü olmadığı için isim değiştirmekden başka kayıt işlemi yapamazsınız.`));
+    }
 
     if(!yaş) 
     { setName = `${uye.user.username.includes(ayar.tag) ? ayar.tag : (ayar.ikinciTag ? ayar.ikinciTag : (ayar.tag || ""))} ${isim}`;
