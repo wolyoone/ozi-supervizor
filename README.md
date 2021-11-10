@@ -10,6 +10,8 @@
 
 Bu botta emeği ve codeları bulunan Aris Lesnar' a teşekürlerimi iletiyorum.
 
+![image](https://user-images.githubusercontent.com/92666466/141027859-8fd86201-d257-473d-8022-1edf8e052044.png)
+![image](https://user-images.githubusercontent.com/92666466/141027606-097f7300-47f4-42d4-a230-42faa1c12546.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575506-c3d8b1cd-dab1-4c4a-8fc0-89e52b1148df.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575391-c1c267fe-eee9-41c0-b821-cf90ca1c8641.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575398-a0863b73-e2f0-4982-901d-6fc223640dae.png)
