@@ -88,22 +88,58 @@ if(Date.now() - member.joinedAt > 1000 * 60 * 60 * 24 * 270) {await member.roles
   }, 1000 * 60 * 60 * 24 * 7)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-client.on("message", msg => {
-       let InviteGuardReg = /(https:\/\/)?(www\.)?(discord\.gg|discord\.me|discordapp\.com\/invite|discord\.com\/invite)\/([a-z0-9-.]+)?/i;  
-         if (InviteGuardReg.test(msg.content)) {
-           try {
-             if (!msg.member.hasPermission("BAN_MEMBERS")) {
-                   msg.delete();
-                   msg.delete();
-                   msg.delete();
-                     return msg.reply('Reklam yapman yasak!').then(ozixd => ozixd.delete({ timeout: 3000 }));
-    
-             }              
-           } catch(err) {
-             console.log(err);
-           }
-         }
-     });
+client.on("message", async (msg) => {
+  if (!msg.guild || msg.author.id === client.user.id) return;
+  let reklamKoruma = true;
+
+  if (reklamKoruma) {
+    try {
+      const kelime = ["discord.gg", "discord.me", "discordapp.com", "discord.io", "discord.tk"];
+      if (kelime.some(reklam => msg.content.includes(reklam))) {
+        if (msg.member.permissions.has(8)) return
+        msg.channel.send(`Hey ${msg.author}, sunucuda link paylaşamazsın!`).then(ozixd => ozixd.delete({ timeout: 3000 }));
+        if (msg.deletable) msg.delete({
+          timeout: 200
+        }).catch(err => {});
+      } else {
+        let links = msg.content.match(/(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}?\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/gi);
+        if (!links) return;
+        if (msg.member.permissions.has(8)) return
+        if (msg.deletable) msg.delete({
+          timeout: 200
+        }).catch(err => {});
+        msg.channel.send(`Hey ${msg.author}, sunucuda link paylaşamazsın!`).then(ozixd => ozixd.delete({ timeout: 3000 }));
+      }
+    } catch (err) {}
+
+  }
+})
+
+client.on("messageUpdate", async (oldMsg, newMsg) => {
+  if (!newMsg.guild || newMsg.author.id === client.user.id) return;
+  let reklamKoruma = true;
+  if (reklamKoruma) {
+    try {
+      if (newMsg.member.permissions.has(8)) return
+      const kelime = ["discord.gg", "discord.me", "discordapp.com", "discord.io", "discord.tk"];
+      if (kelime.some(reklam => newMsg.content.includes(reklam))) {
+        newMsg.channel.send(`Hey ${newMsg.author}, sunucuda link paylaşamazsın!`).then(ozixd => ozixd.delete({ timeout: 3000 }));
+        if (newMsg.deletable) newMsg.delete({
+          timeout: 200
+        }).catch(err => {});
+      } else {
+        let links = newMsg.content.match(/(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}?\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/gi);
+        if (!links) return;
+        if (newMsg.deletable) newMsg.delete({
+          timeout: 200
+        }).catch(err => {});
+        newMsg.channel.send(`Hey ${newMsg.author}, sunucuda link paylaşamazsın!`).then(ozixd => ozixd.delete({ timeout: 3000 }));
+      }
+    } catch (err) {}
+
+  }
+});
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 client.on('message', async message => {
