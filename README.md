@@ -10,6 +10,7 @@
 
 Bu botta emeği ve codeları bulunan Aris Lesnar' a teşekürlerimi iletiyorum.
 
+![image](https://user-images.githubusercontent.com/92666466/141508588-efd16297-700d-41af-9a64-a5f14f0316b3.png)
 ![image](https://user-images.githubusercontent.com/92666466/141027859-8fd86201-d257-473d-8022-1edf8e052044.png)
 ![image](https://user-images.githubusercontent.com/92666466/141027606-097f7300-47f4-42d4-a230-42faa1c12546.png)
 ![image](https://user-images.githubusercontent.com/92666466/141028898-ef3e2cad-7209-415a-8a84-201c6e976f9a.png)
@@ -26,7 +27,6 @@ Bu botta emeği ve codeları bulunan Aris Lesnar' a teşekürlerimi iletiyorum.
 ![image](https://user-images.githubusercontent.com/92666466/139575362-1562a395-5352-4528-b336-5400ef7abe11.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575369-b977aef8-b890-451f-bb9b-b6797ab6cc67.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575301-3eb0eb45-8327-49c8-85fe-71fbc39476b3.png)
-![image](https://user-images.githubusercontent.com/92666466/141508588-efd16297-700d-41af-9a64-a5f14f0316b3.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575381-c6cef99a-3dd2-4c43-b208-e7faa3233774.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575656-0f8e35da-e696-4a6a-a3c7-5342af53de8d.png)
 ![image](https://user-images.githubusercontent.com/92666466/139575672-a7f84db7-98af-46c5-9f37-b2dbfc5fd729.png)
