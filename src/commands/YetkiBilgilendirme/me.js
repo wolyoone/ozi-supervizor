@@ -11,10 +11,6 @@ const yetkis = require("../../schemas/yetkis");
 const ceza = require("../../schemas/ceza");
 const toplams = require("../../schemas/toplams");
 const inviterSchema = require("../../schemas/inviter");
-const gorev = require("../../schemas/invite");
-const kayitg = require("../../schemas/kayitgorev");
-const mesaj = require("../../schemas/mesajgorev");
-const tagli = require("../../schemas/taggorev");
 const {  rewards, miniicon, mesaj2, staff, galp ,Muhabbet ,star , fill, empty, fillStart, emptyEnd, fillEnd, red } = require("../../configs/emojis.json");
 const { TeamMember, MessageEmbed } = require("discord.js");
 const { MessageButton,MessageActionRow } = require('discord-buttons');
@@ -47,53 +43,6 @@ module.exports = {
     const yetkiData = await yetkis.findOne({ guildID: message.guild.id, userID: member.user.id });
     const cezaData = await ceza.findOne({ guildID: message.guild.id, userID: member.user.id });
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-      const gorevData = await gorev.findOne({ guildID: message.guild.id, userID: member.user.id });
-    const total2 = gorevData ? gorevData.invite : 0;
-    const maxValue1 = "10"
-    const coinStatus1 = client.ranks.length > 0 ?
-`**İnvite Görev Durumu :** 
-${staff} ${progressBar1(gorevData ? gorevData.invite : 0, 10, 10)} \`${total2} (${total2}/10)\` 
-` : "";
-          //
-    const kayitgData = await kayitg.findOne({ guildID: message.guild.id, userID: member.user.id });
-    const kayittotal = kayitgData ? kayitgData.kayit : 0;
-    const maxValue2 = "10"
-    const coinStatus2 = client.ranks.length > 0 ?
-`**Kayıt Görev Durumu :**  
-${Muhabbet} ${progressBar1(kayitgData ? kayitgData.kayit : 0, 10, 10)} \`${kayittotal} (${kayittotal}/10)\`
-` : "";
-          //
-    const mesajData = await mesaj.findOne({ guildID: message.guild.id, userID: member.user.id });
-    const mesajtotal = mesajData ? mesajData.mesaj : 0;
-    const maxValue3 = "10"
-    const coinStatus3 = client.ranks.length > 0 ?
-`**Mesaj Görev Durumu :**  
-${mesaj2} ${progressBar1(mesajData ? mesajData.mesaj : 0, 500, 5)} \`${mesajtotal} (${mesajtotal}/500)\`
-` : "";
-          //
-    const tagData = await tagli.findOne({ guildID: message.guild.id, userID: member.user.id });
-    const tagTotal = tagData ? tagData.tagli : 0;
-    const maxValue4 = "5"
-    const coinStatus4 = client.ranks.length > 0 ?
-`**Taglı Üye Durumu :**  
-${galp} ${progressBar1(tagData ? tagData.tagli : 0, 5, 5)} \`${tagTotal} (${tagTotal}/5)\`
-` : "";
-
-function progressBar1(value, maxValue, size) {
-  const progress = Math.round(size * ((value / maxValue) > 1 ? 1 : (value / maxValue)));
-  const emptyProgress = size - progress > 0 ? size - progress : 0;
-  if (progress === maxValue) return "Tamamlandı!";
-
-  const progressText = fill.repeat(progress);
-  const emptyProgressText = empty.repeat(emptyProgress);
-  
-  return emptyProgress > 0 ? fillStart+progressText+emptyProgressText+emptyEnd : fillStart+progressText+emptyProgressText+fillEnd;
-  
-};
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const inviterData = await inviterSchema.findOne({ guildID: message.guild.id, userID: member.user.id });
     const total = inviterData ? inviterData.total : 0;
@@ -128,12 +77,6 @@ const inviterData = await inviterSchema.findOne({ guildID: message.guild.id, use
     .setStyle("blurple")
     .setEmoji("899680497427431424")
 
-    var tassk = new MessageButton()
-    .setLabel("Görev")
-    .setID("tassk_button")
-    .setStyle("gray")
-    .setEmoji("899680505119780895")
-
     var Iptal = new MessageButton()
     .setLabel("İptal")
     .setID("iptal_button")
@@ -141,7 +84,7 @@ const inviterData = await inviterSchema.findOne({ guildID: message.guild.id, use
     .setEmoji("899337291582046228")
 
     const row = new MessageActionRow()
-    .addComponents(PuanDetaylari, GenelPuanDetaylari, tassk, Iptal)
+    .addComponents(PuanDetaylari, GenelPuanDetaylari, Iptal)
 
 embed.setDescription(`
 ${member.toString()}, (${member.roles.highest}) üyesinin \`${moment(Date.now()).format("LLL")}\` tarihinden  itibaren \`${message.guild.name}\` sunucusunda toplam ses ve mesaj bilgileri aşağıda belirtilmiştir.
@@ -278,31 +221,6 @@ msg.edit({
   components : row
 })  
     }
-
-    if(button.id === "tassk_button") {
-      await button.reply.defer()
-      const task = new MessageEmbed()
-      .setDescription(`
-      ${member.toString()}, (${member.roles.highest}) rolüne ait görevlerin aşağıda belirtilmiştir. Görevler tamamlandığında tamamladığın görevlerin ödüllerini almak için \`.görevlerim ödül\` komutu ile alabilirsiniz.  
-      Kalan Süre: \`${moment.duration(moment().endOf('day').valueOf() - Date.now()).format("H [saat], m [dakika] s [saniye]")}\`
-      5 görevi tamamlamak sana toplam \`120 Coin\` verecektir!
-                
-      ${coinStatus1} **Ödülün :** ${rewards} \`30\` Coin\n
-      ${coinStatus2} **Ödülün :** ${rewards} \`30\` Coin\n
-      ${coinStatus3} **Ödülün :** ${rewards} \`30\` Coin\n
-      ${coinStatus4} **Ödülün :** ${rewards} \`30\` Coin\n
-      `)
-
-      .addField("**${star} Yetki Durumu:** ", `
-      ${coinStatus}
-       `, false); 
-
-  msg.edit({
-    embed: task,
-    components : row
-  })
-      
-      }
 
       if(button.id === "iptal_button") {
         await button.reply.defer()
