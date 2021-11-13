@@ -2,9 +2,9 @@ const Discord = require("discord.js")
 const {  kirmiziok, star, miniicon } = require("../../configs/emojis.json");
 module.exports = {
     conf: {
-      aliases: ["ekip"],
-      name: "ekip",
-      help: "ekip"
+      aliases: ["ekip-ses"],
+      name: "ekip-ses",
+      help: "ekip-ses"
     },
   
     run: async (client, message, args, embed) => {
