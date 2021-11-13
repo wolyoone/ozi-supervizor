@@ -48,11 +48,11 @@ module.exports = {
         {
         await tagli.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $inc: { tagli: 1 } }, { upsert: true });
         }
-        msg.edit(`${member.toString()} üyesine başarıyla tag aldırıldı! <a:green:899337284481077298>`).then(x => x.delete({timeout: 5000}))
+        msg.edit(`${message.author}, ${member.toString()} Adlı kullanıcı senin isteğini onayladı. <a:green:899337284481077298>`).then(x => x.delete({timeout: 5000}))
         await taggeds.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $push: { taggeds: member.user.id } }, { upsert: true });
       } else {
-        msg.edit(`${member.toString()} üyesi, tag aldırma teklifini reddetti! <a:red:899337291582046228>`).then(x => x.delete({timeout: 5000}))
+        msg.edit(`${message.author}, ${member.toString()} Adlı kullanıcı senin isteğini onaylamadı.`).then(x => x.delete({timeout: 5000}))
       }
-    }).catch(() => msg.edit("<a:red:899337291582046228> Tag aldırma işlemi iptal edildi!")).then(x => x.delete({timeout: 5000}));
+    }).catch(() => msg.edit(`${member.toString()} 30 saniye boyunca cevap vermediği için işlem iptal edildi.`)).then(x => x.delete({timeout: 5000}));
   }
 }
