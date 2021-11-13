@@ -176,17 +176,11 @@ await uye.roles.remove(ayar.kizRolleri)
 await uye.roles.remove(ayar.erkekRolleri)
 }
 
-    });
+   });
 
     collector.on("end", async () => {
       msg.delete();
-uye.setNickname(`${ayar.tag} İsim ' Yaş`)
-message.lineReply(embed.setDescription(`${message.author}, 30 saniye boyunca cevap vermediği için kayıt işlemi iptal edildi. ${red}`)
-.setFooter(`• Toplam kayıt: ${datas ? datas.top : 0} • Kadın kayıt : ${datas ? datas.kız : 0} • Erkek kayıt : ${datas ? datas.erkek : 0} • ${moment().calendar()}`)
-.setAuthor(uye.displayName, uye.user.displayAvatarURL({ dynamic: true }))
-.setThumbnail(uye.user.displayAvatarURL({ dynamic: true, size: 2048 })))
     });
-
 
   }
 }   
