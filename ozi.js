@@ -194,7 +194,7 @@ client.on('message', async message => {
 });
   
 const mentionRegex = /<@!?&?\d+>/g;
-   
+
 client.on("message", async message => {
     if (message.author.bot) return;
     if (!message.guild) return
