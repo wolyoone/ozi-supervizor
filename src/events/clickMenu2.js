@@ -7,7 +7,7 @@ const inviteMemberSchema = require("../schemas/inviteMember");
 const nameData = require("../schemas/names")
 const conf = require("../configs/settings.json")
 const ayarlar = require("../configs/sunucuayar.json")
-const { voice, mesaj2, star} = require("../configs/emojis.json")
+const {miniicon, voice, mesaj2, star} = require("../configs/emojis.json")
 
 const moment = require("moment");
 moment.locale("tr");
@@ -78,9 +78,9 @@ ${(menu.clicker.member.roles.cache.filter(a => a.name !== '@everyone').map(a => 
 ${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam invite bilgileri aşağıda belirtilmiştir.
 Toplam **${regular}** davet.
 
-<a:tik:899680497427431424> \`(${total} gerçek, ${bonus} bonus, ${leave} ayrılmış, ${fake} fake)\`
+${miniicon} \`(${total} gerçek, ${bonus} bonus, ${leave} ayrılmış, ${fake} fake)\`
       
-<a:tik:899680497427431424> \`Günlük: ${daily}, Haftalık: ${weekly}, Taglı: ${tagged}\`
+${miniicon} \`Günlük: ${daily}, Haftalık: ${weekly}, Taglı: ${tagged}\`
 `)
     }
 
@@ -92,10 +92,10 @@ Toplam **${regular}** davet.
 
     if (menu.values[0] === "VI") {
         menu.reply.edit(`
-<:miniicon:899339236724068372> Sesli kanallardaki üye sayısı : \`${(menu.guild.members.cache.filter((x) => x.voice.channel).size)}\`
-<:miniicon:899339236724068372> Sunucudaki toplam üye sayısı : \`${(menu.guild.memberCount)}\`
-<:miniicon:899339236724068372> Sunucunun oluşturulma tarihi: \`${moment(menu.guild.createdAt).locale("tr").format("LLL")}\`
-<:miniicon:899339236724068372> Sunucu destek numarası : \`${(menu.guild.id)}\`
+${miniicon} Sesli kanallardaki üye sayısı : \`${(menu.guild.members.cache.filter((x) => x.voice.channel).size)}\`
+${miniicon} Sunucudaki toplam üye sayısı : \`${(menu.guild.memberCount)}\`
+${miniicon} Sunucunun oluşturulma tarihi: \`${moment(menu.guild.createdAt).locale("tr").format("LLL")}\`
+${miniicon} Sunucu destek numarası : \`${(menu.guild.id)}\`
 `)
     }
 
@@ -113,11 +113,11 @@ Toplam **${regular}** davet.
         menu.reply.edit(`
 ${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam mesaj bilgileri aşağıda belirtilmiştir.
 
-<a:tik:899680497427431424> **Mesaj İstatistiği**
-<:tik:899339236724068372> Toplam: \`${messageData ? messageData.topStat : 0}\`
+${miniicon} **Mesaj İstatistiği**
+${miniicon} Toplam: \`${messageData ? messageData.topStat : 0}\`
 
-<:tik:899339236724068372> Haftalık Mesaj: \`${Number(messageWeekly).toLocaleString()} mesaj\`
-<:tik:899339236724068372> Günlük Mesaj: \`${Number(messageDaily).toLocaleString()} mesaj\`
+${miniicon} Haftalık Mesaj: \`${Number(messageWeekly).toLocaleString()} mesaj\`
+${miniicon} Günlük Mesaj: \`${Number(messageDaily).toLocaleString()} mesaj\`
 `)
     }
 
@@ -125,11 +125,11 @@ ${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60
 menu.reply.edit(`
 ${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam ses bilgileri aşağıda belirtilmiştir.
 
-<a:tik:899680497427431424> **Sesli Sohbet İstatistiği**
-<:tik:899339236724068372> Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika] s [saniye]")}\`
+${miniicon} **Sesli Sohbet İstatistiği**
+${miniicon} Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika] s [saniye]")}\`
 
-<:tik:899339236724068372> Haftalık Ses: \`${voiceWeekly}\`
-<:tik:899339236724068372> Günlük Ses: \`${voiceDaily}\`
+${miniicon} Haftalık Ses: \`${voiceWeekly}\`
+${miniicon} Günlük Ses: \`${voiceDaily}\`
 `,true);
 
     }
