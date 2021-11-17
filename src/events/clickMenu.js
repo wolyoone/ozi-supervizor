@@ -9,9 +9,9 @@ module.exports = async (menu) => {
         menu.clicker.member.roles.cache.has(conf.sevgilimyok) &&
         menu.clicker.member.roles.cache.has(conf.lgbt)
 
-        menu.clicker.member.roles.add(conf.sevgilimvar)
-        menu.clicker.member.roles.remove(conf.sevgilimyok)
-        menu.clicker.member.roles.remove(conf.lgbt) 
+       await menu.clicker.member.roles.add(conf.sevgilimvar)
+       await menu.clicker.member.roles.remove(conf.sevgilimyok)
+       await menu.clicker.member.roles.remove(conf.lgbt) 
         menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&${conf.sevgilimvar}> rolünü aldın!`)
      },750) 
     }
@@ -20,9 +20,9 @@ setTimeout(() => {
         menu.clicker.member.roles.cache.has(conf.sevgilimvar) &&
         menu.clicker.member.roles.cache.has(conf.lgbt)
 
-        menu.clicker.member.roles.add(conf.sevgilimyok)
-        menu.clicker.member.roles.remove(conf.sevgilimvar)
-        menu.clicker.member.roles.remove(conf.lgbt)  
+       await menu.clicker.member.roles.add(conf.sevgilimyok)
+       await menu.clicker.member.roles.remove(conf.sevgilimvar)
+       await menu.clicker.member.roles.remove(conf.lgbt)  
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&${conf.sevgilimyok}> rolünü aldın!`)
  },750) 
     }
@@ -31,17 +31,17 @@ setTimeout(() => {
         menu.clicker.member.roles.cache.has(conf.sevgilimyok) &&
         menu.clicker.member.roles.cache.has(conf.sevgilimvar)
 
-        menu.clicker.member.roles.add(conf.lgbt)
-        menu.clicker.member.roles.remove(conf.sevgilimyok)
-        menu.clicker.member.roles.remove(conf.sevgilimvar)       
+       await menu.clicker.member.roles.add(conf.lgbt)
+       await menu.clicker.member.roles.remove(conf.sevgilimyok)
+       await menu.clicker.member.roles.remove(conf.sevgilimvar)       
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&${conf.lgbt}> rolünü aldın!`)
  },750) 
     }
     if(menu.values[0] === "rolsuz") {
 setTimeout(() => { 
-        menu.clicker.member.roles.remove(conf.lgbt)
-        menu.clicker.member.roles.remove(conf.sevgilimyok)
-        menu.clicker.member.roles.remove(conf.sevgilimvar)       
+       await menu.clicker.member.roles.remove(conf.lgbt)
+       await menu.clicker.member.roles.remove(conf.sevgilimyok)
+       await menu.clicker.member.roles.remove(conf.sevgilimvar)       
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla üstünüzdeki Bütün rolleri aldım!`)
  },750) 
     }
