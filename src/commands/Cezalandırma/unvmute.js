@@ -6,6 +6,7 @@ moment.locale("tr");
 const penals = require("../../schemas/penals");
 const conf = require("../../configs/sunucuayar.json")
 const { red, green , Revuu} = require("../../configs/emojis.json")
+const settings = require("../../configs/settings.json")
 module.exports = {
   conf: {
     aliases: ["unvmute"],
