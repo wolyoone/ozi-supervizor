@@ -5,43 +5,43 @@ module.exports = async (menu) => {
     menu.reply.think(true)
 
     if (menu.values[0] === "couple") {
-     setTimeout(() => { 
         menu.clicker.member.roles.cache.has(conf.sevgilimyok) &&
         menu.clicker.member.roles.cache.has(conf.lgbt)
 
        await menu.clicker.member.roles.add(conf.sevgilimvar)
        await menu.clicker.member.roles.remove(conf.sevgilimyok)
        await menu.clicker.member.roles.remove(conf.lgbt) 
+     setTimeout(() => { 
         menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&${conf.sevgilimvar}> rolünü aldın!`)
      },750) 
     }
     if(menu.values[0] === "alone") {
-setTimeout(() => { 
         menu.clicker.member.roles.cache.has(conf.sevgilimvar) &&
         menu.clicker.member.roles.cache.has(conf.lgbt)
 
        await menu.clicker.member.roles.add(conf.sevgilimyok)
        await menu.clicker.member.roles.remove(conf.sevgilimvar)
        await menu.clicker.member.roles.remove(conf.lgbt)  
+     setTimeout(() => { 
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&${conf.sevgilimyok}> rolünü aldın!`)
  },750) 
     }
     if(menu.values[0] === "lgbt") {
-setTimeout(() => { 
         menu.clicker.member.roles.cache.has(conf.sevgilimyok) &&
         menu.clicker.member.roles.cache.has(conf.sevgilimvar)
 
        await menu.clicker.member.roles.add(conf.lgbt)
        await menu.clicker.member.roles.remove(conf.sevgilimyok)
        await menu.clicker.member.roles.remove(conf.sevgilimvar)       
+     setTimeout(() => { 
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla <@&${conf.lgbt}> rolünü aldın!`)
  },750) 
     }
     if(menu.values[0] === "rolsuz") {
-setTimeout(() => { 
        await menu.clicker.member.roles.remove(conf.lgbt)
        await menu.clicker.member.roles.remove(conf.sevgilimyok)
-       await menu.clicker.member.roles.remove(conf.sevgilimvar)       
+       await menu.clicker.member.roles.remove(conf.sevgilimvar)     
+     setTimeout(() => {   
             menu.reply.edit(`<@!${menu.clicker.id}> başarıyla üstünüzdeki Bütün rolleri aldım!`)
  },750) 
     }
