@@ -48,7 +48,7 @@ module.exports = {
         {
         await tagli.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $inc: { tagli: 1 } }, { upsert: true });
         }
-        msg.edit(`${message.author}, ${member.toString()} Adlı kullanıcı senin isteğini onayladı. <a:green:899337284481077298>`).then(x => x.delete({timeout: 5000}))
+        msg.edit(`${message.author}, ${member.toString()} Adlı kullanıcı senin isteğini onayladı. ${green}`).then(x => x.delete({timeout: 5000}))
         await taggeds.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $push: { taggeds: member.user.id } }, { upsert: true });
       } else {
         msg.edit(`${message.author}, ${member.toString()} Adlı kullanıcı senin isteğini onaylamadı.`).then(x => x.delete({timeout: 5000}))
