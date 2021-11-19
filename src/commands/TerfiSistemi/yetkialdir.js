@@ -42,12 +42,12 @@ module.exports = {
       const reaction = collected.first();
       if (reaction.emoji.name === 'green') {
         await coin.findOneAndUpdate({ guildID: member.guild.id, userID: message.author.id }, { $inc: { coin: settings.yetkiCoin } }, { upsert: true });       
-        msg.edit(`${member.toString()} üyesine başarıyla yetki aldırıldı! <a:green:899337284481077298>`).then(x => x.delete({timeout: 5000}))
+        msg.edit(`${member.toString()} üyesine başarıyla yetki aldırıldı! ${green}`).then(x => x.delete({timeout: 5000}))
         await yetkis.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $push: { yetkis: member.user.id } }, { upsert: true });
        client.channels.cache.get(conf.yetkiLog).wsend(`${message.author} \`(${message.author.id}\` kişisi ${member} \`(${member.id})\` kişisini yetkiye aldı! <a:green:899337284481077298>`)
         member.roles.add(conf.yetkiRolleri)
       } else {
-        msg.edit(`${member.toString()} üyesi, yetki aldırma teklifini reddetti! <a:red:899337291582046228>`).then(x => x.delete({timeout: 5000}))
+        msg.edit(`${member.toString()} üyesi, yetki aldırma teklifini reddetti! ${red}`).then(x => x.delete({timeout: 5000}))
       }
     }).catch(() => msg.edit("<a:red:899337291582046228> Yetki aldırma işlemi iptal edildi!")).then(x => x.delete({timeout: 5000}));
   }
