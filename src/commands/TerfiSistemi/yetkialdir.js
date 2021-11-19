@@ -49,6 +49,6 @@ module.exports = {
       } else {
         msg.edit(`${member.toString()} üyesi, yetki aldırma teklifini reddetti! ${red}`).then(x => x.delete({timeout: 5000}))
       }
-    }).catch(() => msg.edit("<a:red:899337291582046228> Yetki aldırma işlemi iptal edildi!")).then(x => x.delete({timeout: 5000}));
+    }).catch(() => msg.edit("${red} Yetki aldırma işlemi iptal edildi!")).then(x => x.delete({timeout: 5000}));
   }
 }
