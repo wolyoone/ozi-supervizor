@@ -1,8 +1,7 @@
 const Canvas = require("canvas");
 const { MessageAttachment } = require("discord.js") 
-const moment = require('moment');
-require("moment-duration-format");
-moment.locale('tr');
+const moment = require("moment");
+moment.locale("tr");
 module.exports = {
     conf: {
       aliases: ["profil","kb"],
@@ -48,16 +47,16 @@ run: async (client, message, args, embed, prefix) => {
   ctx.font ='30px bebas neue',
     ctx.fillStyle = '#ffffff';
     ctx.fillText(`Sunucuya Giriş Tarihi:`, canvas.width / 11, canvas.height / 2);
-
-  let ktarihi = `${moment(member.joinedAt).format(`DD/MM/YYYY`)}`
+  
+  let ktarihi = `${moment(message.author.joinedAt).format('D/MMMM/YYYY')}`
   ctx.font ='30px bebas neue',
   ctx.fillStyle = '#ffffff';
-  ctx.fillText(`${ktarihi}`, canvas.width / 1.50 , canvas.height / 2);
+  ctx.fillText(`${ktarihi}`, canvas.width / 1.70 , canvas.height / 2);
 
-  let otarihi = `${moment(member.createdAt).format(`DD/MM/YYYY`)}`
+  let otarihi = `${moment(message.author.createdAt).format('D/MMMM/YYYY')}`
   ctx.font ='30px bebas neue',
   ctx.fillStyle = '#ffffff';
-  ctx.fillText(`${otarihi}`, canvas.width / 1.50 , canvas.height / 2.60);
+  ctx.fillText(`${otarihi}`, canvas.width / 1.70 , canvas.height / 2.60);
 
   ctx.font ='30px bebas neue',
     ctx.fillStyle = '#ffffff';
@@ -79,6 +78,6 @@ ${member.roles.cache.size <= 4 ? member.roles.cache.filter(x => x.name !== "@eve
     const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
     ctx.drawImage(avatar, 40, 40, 125, 125);
 
-  const attachment = new MessageAttachment(canvas.toBuffer(), 'aias.png');
+  const attachment = new MessageAttachment(canvas.toBuffer(), 'ozi.png');
   message.channel.send(`[ __${member}__ ] kişisinin kullanıcı profili ;`, attachment)
     }}
