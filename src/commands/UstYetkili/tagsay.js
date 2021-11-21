@@ -1,3 +1,4 @@
+const Discord = require("discord.js")
 const { green, red } = require("../../configs/emojis.json")
 const conf = require("../../configs/sunucuayar.json")
 module.exports = {
@@ -12,16 +13,30 @@ module.exports = {
         message.react(red)
         return }
         const tag = args.slice(0).join(" ") || conf.tag;
+        let page = 1;
         const memberss = message.guild.members.cache.filter((member) => member.user.username.includes(tag) && !member.user.bot);
-        let atilacak = `Kullanıcı adında **${tag}** tagı olan **${memberss.size}** kişi bulunuyor: \n${memberss.map((member) => `${member} - \`${member.id}\``).join("\n") || `${tag} taglı kullanıcı yok`}`;
-        for (var i = 0; i < Math.floor(atilacak.length / 2000); i++) {
-        message.channel.send(embed.setDescription(atilacak.slice(0, 2000)));
-        atilacak = atilacak.slice(2000);
+        let liste = memberss.map((member) => `${member} - \`${member.id}\``) || `**${tag}** taglı kullanıcı yok`
+        var msg = await message.channel.send(new Discord.MessageEmbed().setDescription(`Kullanıcı adında **${tag}** tagı olan **${memberss.size}** kişi bulunuyor:\n\n ${liste.slice(page == 1 ? 0 : page * 40 - 40, page * 40).join('\n')}`).setColor("RANDOM"));
+        if (liste.length > 40) {
+            await msg.react(`⬅️`);
+            await msg.react(`➡️`);
+            let collector = msg.createReactionCollector((react, user) => ["⬅️", "➡️"].some(e => e == react.emoji.name) && user.id == message.member.id, { time: 200000 });
+            collector.on("collect", (react) => {
+                if (react.emoji.name == "➡️") {
+                    if (liste.slice((page + 1) * 40 - 40, (page + 1) * 40).length <= 0) return;
+                    page += 1;
+                    let tagsay = liste.slice(page == 1 ? 0 : page * 40 - 40, page * 40).join("\n");
+                    msg.edit(new Discord.MessageEmbed().setColor("RANDOM").setDescription(`Kullanıcı adında **${tag}** tagı olan **${memberss.size}** kişi bulunuyor:\n\n${tagsay}`).setColor("RANDOM"));
+                    react.users.remove(message.author.id)
+                }
+                if (react.emoji.name == "⬅️") {
+                    if (liste.slice((page - 1) * 40 - 40, (page - 1) * 40).length <= 0) return;
+                    page -= 1;
+                    let tagsay = liste.slice(page == 1 ? 0 : page * 40 - 40, page * 40).join("\n");
+                    msg.edit(new Discord.MessageEmbed().setColor("RANDOM").setDescription(`Kullanıcı adında **${tag}** tagı olan **${memberss.size}** kişi bulunuyor:\n\n${tagsay}`).setColor("RANDOM"));
+                    react.users.remove(message.author.id)
+                }
+            })
         }
-        if (atilacak.length > 0) message.channel.send(embed.setDescription(atilacak));
       },
     };
-    
-    
-  
-  
