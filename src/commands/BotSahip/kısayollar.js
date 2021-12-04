@@ -1,4 +1,5 @@
 const {MessageMenuOption , MessageMenu , MessageActionRow} = require("discord-buttons")
+const { star} = require("../../configs/emojis.json")
 module.exports = {
   conf: {
     aliases: ["kısayollar"],
@@ -11,7 +12,7 @@ module.exports = {
 
         client.api.channels(message.channel.id).messages.post({
             data: {
-                "content": "**✬ Revulion**, bot komutlarını incelemek için aşağıdaki menüyü kullan!",
+                "content": `${star} \`${message.guild.name}\`, bot komutlarını incelemek için aşağıdaki menüyü kullan!`,
                 "components": [{
                     "type": 1, "components": [{
                         "type": 3, "custom_id": "kısayollar", "options": [
