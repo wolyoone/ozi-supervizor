@@ -113,7 +113,7 @@ ${miniicon} Sunucu destek numarası : \`${(menu.guild.id)}\`
         menu.reply.edit(`
 ${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam mesaj bilgileri aşağıda belirtilmiştir.
 
-${miniicon} **Mesaj İstatistiği**
+${star} **Mesaj İstatistiği**
 ${miniicon} Toplam: \`${messageData ? messageData.topStat : 0}\`
 
 ${miniicon} Haftalık Mesaj: \`${Number(messageWeekly).toLocaleString()} mesaj\`
@@ -125,7 +125,7 @@ ${miniicon} Günlük Mesaj: \`${Number(messageDaily).toLocaleString()} mesaj\`
 menu.reply.edit(`
 ${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam ses bilgileri aşağıda belirtilmiştir.
 
-${miniicon} **Sesli Sohbet İstatistiği**
+${star} **Sesli Sohbet İstatistiği**
 ${miniicon} Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika] s [saniye]")}\`
 
 ${miniicon} Haftalık Ses: \`${voiceWeekly}\`
