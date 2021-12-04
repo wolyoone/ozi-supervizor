@@ -6,7 +6,7 @@ const coin = require("../../schemas/coin");
 const conf = require("../../configs/sunucuayar.json")
 const moment = require("moment");
 require("moment-duration-format");
-const { xp, gulucuk, mesaj2, altin, altin2 ,rewards , fill, empty, fillStart, emptyEnd, fillEnd } = require("../../configs/emojis.json")
+const { Muhabbet, gulucuk, mesaj2, galp, staff ,rewards , fill, empty, fillStart, emptyEnd, fillEnd } = require("../../configs/emojis.json")
 
 module.exports = {
     conf: {
@@ -35,7 +35,7 @@ module.exports = {
     const maxValue = "10"
     const coinStatus1 = client.ranks.length > 0 ?
 `**İnvite Görev Durumu :** 
-<a:staff:899680505119780895> ${progressBar(gorevData ? gorevData.invite : 0, 10, 10)} \`${total} (${total}/10)\` 
+${staff} ${progressBar(gorevData ? gorevData.invite : 0, 10, 10)} \`${total} (${total}/10)\` 
 ` : "";
           //
     const kayitgData = await kayitg.findOne({ guildID: message.guild.id, userID: member.user.id });
@@ -43,7 +43,7 @@ module.exports = {
     const maxValue2 = "10"
     const coinStatus2 = client.ranks.length > 0 ?
 `**Kayıt Görev Durumu :**  
-<a:Muhabbet:899339317896429641> ${progressBar(kayitgData ? kayitgData.kayit : 0, 10, 10)} \`${kayittotal} (${kayittotal}/10)\`
+${Muhabbet} ${progressBar(kayitgData ? kayitgData.kayit : 0, 10, 10)} \`${kayittotal} (${kayittotal}/10)\`
 ` : "";
           //
     const mesajData = await mesaj.findOne({ guildID: message.guild.id, userID: member.user.id });
@@ -59,7 +59,7 @@ ${mesaj2} ${progressBar(mesajData ? mesajData.mesaj : 0, 500, 5)} \`${mesajtotal
     const maxValue4 = "5"
     const coinStatus4 = client.ranks.length > 0 ?
 `**Taglı Üye Durumu :**  
-<a:galp:899680513806184570> ${progressBar(tagData ? tagData.tagli : 0, 5, 5)} \`${tagTotal} (${tagTotal}/5)\`
+${galp} ${progressBar(tagData ? tagData.tagli : 0, 5, 5)} \`${tagTotal} (${tagTotal}/5)\`
 ` : "";
 
 
