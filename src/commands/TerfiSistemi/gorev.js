@@ -6,7 +6,7 @@ const coin = require("../../schemas/coin");
 const conf = require("../../configs/sunucuayar.json")
 const moment = require("moment");
 require("moment-duration-format");
-const { Muhabbet, gulucuk, mesaj2, galp, staff ,rewards , fill, empty, fillStart, emptyEnd, fillEnd } = require("../../configs/emojis.json")
+const { Muhabbet, gulucuk, mesaj2, galp, staff ,rewards , fill, empty, fillStart, emptyEnd, fillEnd, red } = require("../../configs/emojis.json")
 
 module.exports = {
     conf: {
@@ -17,6 +17,7 @@ module.exports = {
   
     run: async (client, message, args, embed, prefix) => {
     const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
+    if(!conf.staffs.some(rol => member.roles.cache.has(rol))) return message.react(red)
     const gorevData = await gorev.findOne({ guildID: message.guild.id, userID: member.user.id });
 
     const coinData = await coin.findOne({ guildID: message.guild.id, userID: member.user.id });
