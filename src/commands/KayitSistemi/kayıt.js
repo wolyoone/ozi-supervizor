@@ -77,19 +77,19 @@ run: async (client, message, args, embed, prefix) => {
     .setID("MAN")
     .setLabel("Erkek")
     .setStyle("blurple")
-    .setEmoji("899213985965043732")
+    .setEmoji("916010225289560074")
 
     var button_2 = new MessageButton()
     .setID("WOMAN")
     .setLabel("Kadın")
     .setStyle("green")
-    .setEmoji("818073595229503519")
+    .setEmoji("916010235200679996")
 
     var button_3 = new MessageButton()
     .setID("İPTAL")
     .setLabel("İptal")
     .setStyle("red")
-    .setEmoji("899337291582046228")
+    .setEmoji("915754675742081076")
 
 
     const data = await isimler.findOne({ guildID: message.guild.id, userID: uye.user.id });
