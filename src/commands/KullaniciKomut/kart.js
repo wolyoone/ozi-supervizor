@@ -23,10 +23,8 @@ run: async (client, message, args, embed, prefix) => {
     const voiceData = await voiceUser.findOne({ guildID: message.guild.id, userID: member.user.id });
     const messageWeekly = messageData ? messageData.weeklyStat : 0;
     const messageDaily = messageData ? messageData.dailyStat : 0;
- 
 
     const toplamData = await toplams.findOne({ guildID: message.guild.id, userID: member.user.id });
-
 
 const inviterData = await inviterSchema.findOne({ guildID: message.guild.id, userID: member.user.id });
     const total = inviterData ? inviterData.total : 0;
@@ -41,7 +39,6 @@ const inviterData = await inviterSchema.findOne({ guildID: message.guild.id, use
         return moment.duration(voiceStat).format("H [saat], m [dakika]");
       };
       
-
   const applyText = (canvas, text) => {
     const ctx = canvas.getContext('2d');
 
