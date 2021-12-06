@@ -12,7 +12,7 @@ module.exports = async (oldUser, newUser) => {
     const channel = guild.channels.cache.get(conf.ekipLogChannel);
     const kanal = guild.channels.cache.get(conf.chatChannel)
     if (oldUser.username.includes(conf.tag) && !newUser.username.includes(conf.tag)) {
-      if (conf.taglıAlım && !member.premiumSince) member.roles.set(conf.unregister);
+      if (conf.taglıAlım && !member.premiumSince) member.roles.set(conf.unregRoles);
       else member.roles.remove(conf.ekipRolu);
       if (!channel) return;
       const embed = new MessageEmbed()
