@@ -1,6 +1,6 @@
 # Ozi Bots
 
-- Minik bir kaç hatası kaldı vaktim olup düzeltince değiştiririm starlarınızı bekliyorum yeni github hesabım.
+- Testleri yapılmıştır. Hiçbir hatası bulunmamaktadır starlarınızı bekliyorum yeni github hesabım.
 - Sizlerle geliştirmiş olduğum botlardan biriyle tanıştırmak istiyorum.. 
 - Invite, Moderasyon, Register, Stats, Buton sistemleri.
 
