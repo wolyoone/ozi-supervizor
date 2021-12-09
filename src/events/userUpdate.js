@@ -19,6 +19,19 @@ module.exports = async (oldUser, newUser) => {
    if(!member.roles.cache.has(conf.vipRole) && !member.roles.cache.has(conf.boosterRolu)) return member.roles.set(conf.unregRoles);
 }
       else member.roles.remove(conf.ekipRolu);
+
+  let ekip = member.guild.roles.cache.get(conf.ekipRolu);
+
+    if (!conf.Yetkili) {
+    if (member.roles.cache.has(ekip.id)) member.roles.remove(ekip.id).catch(console.error);
+	  let roles = member.roles.cache.clone().filter(e => e.managed || e.position < ekip.position);
+    member.roles.set(roles).catch();
+    } else {
+      let roles = member.roles.cache.clone().filter(e => e.managed).map(e => e.id);
+	  roles.concat(conf.unregRoles);
+     member.roles.set(roles).catch();
+    }
+
       if (!channel) return;
       const embed = new MessageEmbed()
         .setAuthor(member.displayName,  newUser.displayAvatarURL({ dynamic: true }))
