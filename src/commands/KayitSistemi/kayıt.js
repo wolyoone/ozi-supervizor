@@ -9,6 +9,9 @@ const settings = require("../../configs/settings.json")
 const { red , green } = require("../../configs/emojis.json")
 const isimler = require("../../schemas/names");
 const regstats = require("../../schemas/registerStats");
+
+const otokayit = require("../../schemas/otokayit");
+
 const moment = require("moment")
 moment.locale("tr")
 const { MessageButton } = require('discord-buttons');
@@ -60,12 +63,13 @@ run: async (client, message, args, embed, prefix) => {
 
    const tagModedata = await regstats.findOne({ guildID: message.guild.id })
     if (tagModedata && tagModedata.tagMode === true) {
-    if(!uye.user.username.includes(ayar.tag) && !uye.roles.cache.has(ayar.vipRole) && !uye.roles.cache.has(ayar.boosterRolu)) return message.lineReply(embed.setDescription(`${uye.toString()} isimli üyenin kullanıcı adında tagımız (\`${ayar.tag}\`) olmadığı, <@&${ayar.boosterRolu}>, <@&${ayar.vipRole}> Rolü olmadığı için isim değiştirmekden başka kayıt işlemi yapamazsınız.`));
+    if(!uye.roles.cache.has("855159733048311818") && !uye.roles.cache.has(ayar.vipRole) && !uye.roles.cache.has(ayar.boosterRolu)) return message.lineReply(embed.setDescription(`${uye.toString()} isimli üyenin kullanıcı adında tagımız (\`†, Stârk, #1983\`) olmadığı, <@&${ayar.boosterRolu}>, <@&${ayar.vipRole}> Rolü olmadığı için isim değiştirmekden başka kayıt işlemi yapamazsınız.`));
     }
 
+
     if(!yaş) 
-    { setName = `${uye.user.username.includes(ayar.tag) ? ayar.tag : (ayar.ikinciTag ? ayar.ikinciTag : (ayar.tag || ""))} ${isim}`;
-    } else { setName = `${uye.user.username.includes(ayar.tag) ? ayar.tag : (ayar.ikinciTag ? ayar.ikinciTag : (ayar.tag || ""))} ${isim} ' ${yaş}`;
+    { setName =`${conf.tag} ${isim}`;
+    } else { setName = `${conf.tag} ${isim} ' ${yaş}`;
   }
 
     uye.setNickname(`${setName}`).catch(err => message.lineReply(`İsim çok uzun.`))
@@ -91,6 +95,8 @@ run: async (client, message, args, embed, prefix) => {
     .setStyle("red")
     .setEmoji("915754675742081076")
 
+    let erkekRol = conf.erkekRolleri;
+    let kadinRol = conf.kizRolleri;
 
     const data = await isimler.findOne({ guildID: message.guild.id, userID: uye.user.id });
 
@@ -139,6 +145,19 @@ ${uye.toString()} sunucumuza <@${message.author.id}> tarafından, \`${setName}\`
 
 if(ayar.chatChannel && client.channels.cache.has(ayar.chatChannel)) client.channels.cache.get(ayar.chatChannel).send(`Aramıza hoşgeldin **${uye}**! Kuralları okumayı unutma!`).then(x => x.delete({timeout: 10000})) 
 
+         await otokayit.updateOne({
+          userID: uye.user.id
+           }, {
+           $set: {
+                  userID: uye.user.id,
+                  roleID: erkekRol,
+                  name: isim,
+                  age: yaş
+                }
+             }, {
+                 upsert: true
+              }).exec();
+
 }
 
 if(button.id === "WOMAN") {
@@ -166,11 +185,24 @@ ${uye.toString()} sunucumuza <@${message.author.id}> tarafından, \`${setName}\`
 
 if(ayar.chatChannel && client.channels.cache.has(ayar.chatChannel)) client.channels.cache.get(ayar.chatChannel).send(`Aramıza hoşgeldin **${uye}**! Kuralları okumayı unutma!`).then(x => x.delete({timeout: 10000})) 
 
+         await otokayit.updateOne({
+          userID: uye.user.id
+           }, {
+           $set: {
+                  userID: uye.user.id,
+                  roleID: kadinRol,
+                  name: isim,
+                  age: yaş
+                }
+             }, {
+                 upsert: true
+              }).exec();
+
 }
 
 if(button.id === "İPTAL") {
 msg.delete();
-uye.setNickname(`${ayar.tag} İsim ' Yaş`)
+uye.setNickname(`• İsim ' Yaş`)
 await uye.roles.add(ayar.unregRoles)
 await uye.roles.remove(ayar.kizRolleri)
 await uye.roles.remove(ayar.erkekRolleri)
