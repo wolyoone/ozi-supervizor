@@ -5,7 +5,10 @@ const inviteMemberSchema = require("../schemas/inviteMember");
 const coin = require("../schemas/coin");
 const gorev = require("../schemas/invite");
 const otokayit = require("../schemas/otokayit");
+const regstats = require("../schemas/registerStats");
+const conf = require("../configs/sunucuayar.json");
 const ayar = require("../configs/sunucuayar.json")
+const settings = require("../configs/settings.json")
 const moment = require("moment");
 const { star, green, red } = require("../configs/emojis.json")
 
@@ -29,10 +32,13 @@ module.exports = async (member) => {
       userID: member.id
     })
 
+   const tagModedata = await regstats.findOne({ guildID: settings.guildID })
+    if (tagModedata && tagModedata.tagMode === false) {
       if (otoreg) {
         if (member.manageable) await member.roles.set(otoreg.roleID)
         member.setNickname(`${ayar.tag} ${otoreg.name} ' ${otoreg.age}`);
       }
+}
 
   let memberGün = moment(member.user.createdAt).format("DD");
   let memberTarih = moment(member.user.createdAt).format("YYYY HH:mm:ss");
