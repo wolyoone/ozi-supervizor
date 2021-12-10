@@ -4,6 +4,7 @@ const inviterSchema = require("../schemas/inviter");
 const inviteMemberSchema = require("../schemas/inviteMember");
 const coin = require("../schemas/coin");
 const gorev = require("../schemas/invite");
+const otokayit = require("../schemas/otokayit");
 const ayar = require("../configs/sunucuayar.json")
 const moment = require("moment");
 const { star, green, red } = require("../configs/emojis.json")
@@ -23,6 +24,15 @@ module.exports = async (member) => {
   client.channels.cache.get(ayar.ekipLogChannel).send(`<@${member.id}> adlı kişi sunucumuza taglı şekilde katıldı, isminde ${ayar.tag} sembolü bulunuyor.`)
  
   }
+
+    let otoreg = await otokayit.findOne({
+      userID: member.id
+    })
+
+      if (otoreg) {
+        if (member.manageable) await member.roles.set(otoreg.roleID)
+        member.setNickname(`${ayar.tag} ${otoreg.name} ' ${otoreg.age}`);
+      }
 
   let memberGün = moment(member.user.createdAt).format("DD");
   let memberTarih = moment(member.user.createdAt).format("YYYY HH:mm:ss");
