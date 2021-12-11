@@ -13,21 +13,21 @@ module.exports = {
     message.lineReply(`Malesef yetkin bulunmamakta dostum.`).then(x=> x.delete({timeout: 5000}))
     return }
 
-    if (!args[0]) return message.lineReply("<a:tik:899337291582046228> Kullanımı: !r al/ver Kullanıcı Rol")
+    if (!args[0]) return message.lineReply(`${red} Kullanımı: !r al/ver Kullanıcı Rol`)
     if (args[0] != "al") {
         if (args[0] != "ver") {
-            return message.lineReply("<a:tik:899337291582046228> Kullanımı: !r al/ver Kullanıcı Rol")
+            return message.lineReply(`${red} Kullanımı: !r al/ver Kullanıcı Rol`)
         }
     }
 
-    if (!args[1]) return message.lineReply("<a:tik:899337291582046228> Bir üye etiketle ve tekrardan dene!")
+    if (!args[1]) return message.lineReply(`${red} Bir üye etiketle ve tekrardan dene!`)
     let rMember = message.mentions.members.first() || message.guild.members.cache.get(args[1])
-    if (!rMember) return message.lineReply("<a:tik:868803851275370496> Bir üye etiketle ve tekrardan dene!")
+    if (!rMember) return message.lineReply(`${red} Bir üye etiketle ve tekrardan dene!`)
 
-    if (!args[2]) return message.lineReply("<a:tik:899337291582046228> Rolü belirtmelisin.")
+    if (!args[2]) return message.lineReply(`${red} Rolü belirtmelisin.`)
     let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[2])
-        if (!role) return message.lineReply("<a:tik:899337291582046228> Belirtmiş olduğun rolü bulamadım ! Düzgün bir rol etiketle veya ID belirtip tekrar dene.")
-        if (message.member.roles.highest.rawPosition <= role.rawPosition) return message.lineReply("<a:tik:899337291582046228> Kendi rolünden yüksek veya eşit bir rolle işlem yapamazsın.")
+        if (!role) return message.lineReply(`${red} Belirtmiş olduğun rolü bulamadım ! Düzgün bir rol etiketle veya ID belirtip tekrar dene.`)
+        if (message.member.roles.highest.rawPosition <= role.rawPosition) return message.lineReply(`${red} Kendi rolünden yüksek veya eşit bir rolle işlem yapamazsın.`)
        
 
         if (args[0] == "al") {
