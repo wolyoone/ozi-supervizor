@@ -36,7 +36,8 @@ module.exports = async (member) => {
     if (tagModedata && tagModedata.tagMode === false) {
       if (otoreg) {
         if (member.manageable) await member.roles.set(otoreg.roleID)
-        member.setNickname(`${ayar.tag} ${otoreg.name} ' ${otoreg.age}`);
+        member.setNickname(`${ayar.tag} ${otoreg.name}`);
+       if(ayar.chatChannel && client.channels.cache.has(ayar.chatChannel)) client.channels.cache.get(ayar.chatChannel).send(`Aramıza hoşgeldin **${member}**! Sunucumuzda daha önceden kayıtın bulunduğu için direkt içeriye alındınız. Kuralları okumayı unutma!`).then(x => x.delete({timeout: 10000})) 
       }
 }
 
