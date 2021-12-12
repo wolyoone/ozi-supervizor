@@ -106,7 +106,7 @@ run: async (client, message, args, embed, prefix) => {
 ${uye.toString()} kullanıcının adı başarıyla \`"${setName}"\` olarak değiştirildi.
 
 **Bu kişi daha önce şu isimlerle kayıt olmuş;**
-${data ? data.names.splice(0, 5).map((x, i) => `\`${i + 1}.\` \`${x.name}\` (${x.rol}) , (<@${x.yetkili}>)`).join("\n") : ""}
+${data ? data.names.splice(0, 5).map((x, i) => `\`${i + 1}.\` \`${x.name}\` (${x.rol}) , (<@${x.yetkili}>)`).join("\n") : "Bu kullanıcı daha önce kayıt olmamış!"}
     `)
 .setFooter(`Lütfen 30 saniye alttaki butonlara basarak kullanıcının cinsiyetini belirleyin.`)
 .setAuthor(uye.displayName, uye.user.displayAvatarURL({ dynamic: true }))
