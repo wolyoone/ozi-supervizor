@@ -78,7 +78,7 @@ if(button.id === "IV")
 {
 await button.reply.think(true)
 await button.reply.edit(`
-${button.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam invite bilgileri aşağıda belirtilmiştir.
+${button.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`${button.guild.name}\` sunucusunda toplam invite bilgileri aşağıda belirtilmiştir.
 Toplam **${regular}** davet.
 
 ${miniicon} \`(${total} gerçek, ${bonus} bonus, ${leave} ayrılmış, ${fake} fake)\`
@@ -119,7 +119,7 @@ if(button.id === "VIII")
 {
 await button.reply.think(true)
 await button.reply.edit(`
-${button.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam mesaj bilgileri aşağıda belirtilmiştir.
+${button.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`${button.guild.name}\` sunucusunda toplam mesaj bilgileri aşağıda belirtilmiştir.
 
 ${star} **Mesaj İstatistiği**
 ${miniicon} Toplam: \`${messageData ? messageData.topStat : 0}\`
@@ -133,7 +133,7 @@ if(button.id === "IX")
 {
 await button.reply.think(true)
 await button.reply.edit(`
-${button.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam ses bilgileri aşağıda belirtilmiştir.
+${button.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`${button.guild.name}\` sunucusunda toplam ses bilgileri aşağıda belirtilmiştir.
 
 ${star} **Sesli Sohbet İstatistiği**
 ${miniicon} Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika] s [saniye]")}\`
