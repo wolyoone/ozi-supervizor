@@ -20,6 +20,6 @@ module.exports = {
 
     embed.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 2048 }));
     embed.setTitle(`${member.user.username} üyesinin isim bilgileri;`);
-    message.lineReply(embed.setDescription(data ? data.names.splice(0, 10).map((x, i) => `\`${i + 1}.\` \`${x.name}\` (${x.rol}) , (<@${x.yetkili}>) , **[**\`${moment(x.date).format("LLL")}\`**]**`).join("\n") : ""));
+    message.lineReply(embed.setDescription(data ? data.names.splice(0, 10).map((x, i) => `\`${i + 1}.\` \`${x.name}\` (${x.rol}) , (<@${x.yetkili}>) , **[**\`${moment(x.date).format("LLL")}\`**]**`).join("\n") : "Bu kullanıcıya ait isim geçmişi bulunmuyor!"));
   }
 };
