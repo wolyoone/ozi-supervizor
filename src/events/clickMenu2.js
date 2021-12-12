@@ -75,7 +75,7 @@ ${(menu.clicker.member.roles.cache.filter(a => a.name !== '@everyone').map(a => 
 
     if (menu.values[0] === "IV") {
         menu.reply.edit(`
-${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam invite bilgileri aşağıda belirtilmiştir.
+${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`${menu.guild.name}\` sunucusunda toplam invite bilgileri aşağıda belirtilmiştir.
 Toplam **${regular}** davet.
 
 ${miniicon} \`(${total} gerçek, ${bonus} bonus, ${leave} ayrılmış, ${fake} fake)\`
@@ -111,7 +111,7 @@ ${miniicon} Sunucu destek numarası : \`${(menu.guild.id)}\`
 
     if (menu.values[0] === "VIII") {
         menu.reply.edit(`
-${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam mesaj bilgileri aşağıda belirtilmiştir.
+${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`${menu.guild.name}\` sunucusunda toplam mesaj bilgileri aşağıda belirtilmiştir.
 
 ${star} **Mesaj İstatistiği**
 ${miniicon} Toplam: \`${messageData ? messageData.topStat : 0}\`
@@ -123,7 +123,7 @@ ${miniicon} Günlük Mesaj: \`${Number(messageDaily).toLocaleString()} mesaj\`
 
     if (menu.values[0] === "IX") {
 menu.reply.edit(`
-${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`Revulion ✬ #MUTLUYARINLAR\` sunucusunda toplam ses bilgileri aşağıda belirtilmiştir.
+${menu.clicker.member.toString()}, üyesinin \`${moment(Date.now() + (1000*60*60*3)).format("LLL")}\` tarihinden  itibaren \`${menu.guild.name}\` sunucusunda toplam ses bilgileri aşağıda belirtilmiştir.
 
 ${star} **Sesli Sohbet İstatistiği**
 ${miniicon} Toplam: \`${moment.duration(voiceData ? voiceData.topStat : 0).format("H [saat], m [dakika] s [saniye]")}\`
