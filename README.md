@@ -8,6 +8,8 @@
 
 - Events Select Menu de ki rol idleri doldurmanız lazım, emoji sunucu ayar vesaire ayarladıktan sonra baslatmaya geldik npm i yapıyoruz ardından axios modülü yüklenmediği için npm i axios yapiyoruz eğer canvas yüklenmezse bazılarında hata oluyomus npm i canvas yapabilirsiniz botunuz hazır esenlikle kalın.
 
+Theark ve Aris'e codeları için tesekkürler...
+
 ![image](https://user-images.githubusercontent.com/92666466/145694537-015938d5-b724-47cc-b93a-bb63d95288fe.png)
 ![image](https://user-images.githubusercontent.com/92666466/144712859-7574c3e0-2f3c-4e60-8d57-4d9e9b5170bd.png)
 ![image](https://user-images.githubusercontent.com/92666466/144712851-feffdc3d-46d7-4bfc-addb-043bc4d6acba.png)
