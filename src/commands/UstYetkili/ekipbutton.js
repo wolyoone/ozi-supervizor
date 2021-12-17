@@ -11,26 +11,25 @@ module.exports = {
   
 let botcomamnds = "855159731176865812"
 let tag = "†" 
- ////1.North 2.Spect 3.Win 4.valve
   let ekiprol = ["855159733048311818","","","","","","","",""]
   let ekipetikettag = ["1983","","","","","","",""]
   let ekipisimtag = ["Shéw","","","","","","","",""]
 
-  let rdagıt = new disbut.MessageButton().setStyle('blurple').setLabel(`Rol Dağıt`).setID('rdagıt')
-  let sesteolmayanlar = new disbut.MessageButton().setStyle('blurple').setLabel(`Seste olmayanlar`).setID('sesteolmayanlar')
-  let ekiptekiler = new disbut.MessageButton().setStyle('blurple').setLabel(`Ekip Üyeleri`).setID('ekiptekiler')
+  let rdagıt = new disbut.MessageButton().setStyle('green').setLabel(`Rol Dağıt`).setID('rdagıt')
+  let sesteolmayanlar = new disbut.MessageButton().setStyle('green').setLabel(`Seste olmayanlar`).setID('sesteolmayanlar')
+  let ekiptekiler = new disbut.MessageButton().setStyle('green').setLabel(`Ekip Üyeleri`).setID('ekiptekiler')
 
-  let rdagıt2 = new disbut.MessageButton().setStyle('blurple').setLabel(`Rol Dağıt`).setID('rdagıt2')
-  let sesteolmayanlar2 = new disbut.MessageButton().setStyle('blurple').setLabel(`Seste olmayanlar`).setID('sesteolmayanlar2')
-  let ekiptekiler2 = new disbut.MessageButton().setStyle('blurple').setLabel(`Ekip Üyeleri`).setID('ekiptekiler2')
+  let rdagıt2 = new disbut.MessageButton().setStyle('green').setLabel(`Rol Dağıt`).setID('rdagıt2')
+  let sesteolmayanlar2 = new disbut.MessageButton().setStyle('green').setLabel(`Seste olmayanlar`).setID('sesteolmayanlar2')
+  let ekiptekiler2 = new disbut.MessageButton().setStyle('green').setLabel(`Ekip Üyeleri`).setID('ekiptekiler2')
 
-  let rdagıt3 = new disbut.MessageButton().setStyle('blurple').setLabel(`Rol Dağıt`).setID('rdagıt3')
-  let sesteolmayanlar3 = new disbut.MessageButton().setStyle('blurple').setLabel(`Seste olmayanlar`).setID('sesteolmayanlar3')
-  let ekiptekiler3 = new disbut.MessageButton().setStyle('blurple').setLabel(`Ekip Üyeleri`).setID('ekiptekiler3')
+  let rdagıt3 = new disbut.MessageButton().setStyle('green').setLabel(`Rol Dağıt`).setID('rdagıt3')
+  let sesteolmayanlar3 = new disbut.MessageButton().setStyle('green').setLabel(`Seste olmayanlar`).setID('sesteolmayanlar3')
+  let ekiptekiler3 = new disbut.MessageButton().setStyle('green').setLabel(`Ekip Üyeleri`).setID('ekiptekiler3')
 
-  let rdagıt4 = new disbut.MessageButton().setStyle('blurple').setLabel(`Rol Dağıt`).setID('rdagıt4')
-  let sesteolmayanlar4 = new disbut.MessageButton().setStyle('blurple').setLabel(`Seste olmayanlar`).setID('sesteolmayanlar4')
-  let ekiptekiler4 = new disbut.MessageButton().setStyle('blurple').setLabel(`Ekip Üyeleri`).setID('ekiptekiler4')
+  let rdagıt4 = new disbut.MessageButton().setStyle('green').setLabel(`Rol Dağıt`).setID('rdagıt4')
+  let sesteolmayanlar4 = new disbut.MessageButton().setStyle('green').setLabel(`Seste olmayanlar`).setID('sesteolmayanlar4')
+  let ekiptekiler4 = new disbut.MessageButton().setStyle('green').setLabel(`Ekip Üyeleri`).setID('ekiptekiler4')
     
     if (!message.guild) return;
     if (durum) {
