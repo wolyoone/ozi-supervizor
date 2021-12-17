@@ -36,7 +36,7 @@ module.exports = async (member) => {
     if (tagModedata && tagModedata.tagMode === false) {
       if (otoreg) {
         if (member.manageable) await member.roles.set(otoreg.roleID)
-        member.setNickname(`${ayar.tag} ${otoreg.name} ' ${otoreg.age}`);
+        member.setNickname(`${ayar.tag} ${otoreg.name}`);
        if(ayar.chatChannel && client.channels.cache.has(ayar.chatChannel)) client.channels.cache.get(ayar.chatChannel).send(`Aramıza hoşgeldin **${member}**! Sunucumuzda daha önceden kayıtın bulunduğu için direkt içeriye alındınız. Kuralları okumayı unutma!`).then(x => x.delete({timeout: 10000})) 
       }
 }
@@ -60,7 +60,7 @@ module.exports = async (member) => {
 
 if (invite === member.guild.vanityURLCode) {
 kayitchannel.wsend(`
-Sunucu İsmi'e Hoşgeldin ${member}! Hesabın ${memberGün} ${memberAylar} ${memberTarih} tarihinde oluşturulmuş. ${guvenilirlik ? `Şüpheli! ${red}` : `Güvenli! ${green}` }\n 
+${member.guild.name}'e Hoşgeldin ${member}! Hesabın ${memberGün} ${memberAylar} ${memberTarih} tarihinde oluşturulmuş. ${guvenilirlik ? `Şüpheli! ${red}` : `Güvenli! ${green}` }\n 
 Sunucuya erişebilmek için "V. Confirmed" odalarında kayıt olup isim yaş belirtmen gerekmektedir.\n
 Sunucu kurallarımız ${kurallar} kanalında belirtilmiştir. Unutma sunucu içerisinde ki ceza işlemlerin kuralları okuduğunu varsayarak gerçekleştirilecek.\n
 Seninle beraber **${üyesayısı}** kişiyiz.Sunucu Özel URL tarafından davet edildin! :tada: :tada: :tada:`);
@@ -80,7 +80,7 @@ await inviterSchema.findOneAndUpdate({ guildID: member.guild.id, userID: invite.
 const inviterData = await inviterSchema.findOne({ guildID: member.guild.id, userID: invite.inviter.id });
 const total = inviterData ? inviterData.total : 0;
 kayitchannel.wsend(`
-Sunucu İsmi'e Hoşgeldin ${member}! Hesabın ${memberGün} ${memberAylar} ${memberTarih} tarihinde oluşturulmuş. ${guvenilirlik ? `Şüpheli! ${red}` : `Güvenli! ${green}` }\n 
+${member.guild.name}'e Hoşgeldin ${member}! Hesabın ${memberGün} ${memberAylar} ${memberTarih} tarihinde oluşturulmuş. ${guvenilirlik ? `Şüpheli! ${red}` : `Güvenli! ${green}` }\n 
 Sunucuya erişebilmek için "V. Confirmed" odalarında kayıt olup isim yaş belirtmen gerekmektedir.\n
 Sunucu kurallarımız ${kurallar} kanalında belirtilmiştir. Unutma sunucu içerisinde ki ceza işlemlerin kuralları okuduğunu varsayarak gerçekleştirilecek.\n
 Seninle beraber **${üyesayısı}** kişiyiz.${invite.inviter} tarafından davet edildin ve bu kişinin ${total} daveti oldu! :tada: :tada: :tada:`);
