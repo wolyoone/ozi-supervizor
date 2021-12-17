@@ -23,7 +23,7 @@ module.exports = {
     message.react(red)
     return }
     const user = message.mentions.users.first() || await client.fetchUser(args[0]);
-    if (!user) { message.channel.send( "Böyle bir kullanıcı bulunamadı!").then(x=>x.delete({timeout:5000}))
+    if (!user) { message.channel.send("Böyle bir kullanıcı bulunamadı!").then(x=>x.delete({timeout:5000}))
     message.react(red)
     return }
     const ban = await client.fetchBan(message.guild, args[0]);
@@ -32,31 +32,44 @@ module.exports = {
     return }
     const reason = args.slice(1).join(" ") || "Belirtilmedi!";
     const member = message.guild.members.cache.get(user.id);
-    if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini banlayamazsın!").then(x=>x.delete({timeout:5000}))
+
+    if (message.guild.members.cache.has(user.id) && message.guild.members.cache.get(user.id).hasPermission("VIEW_AUDIT_LOG")) return message.channel.send("Üst yetkiye sahip kişileri yasaklayamazsın!").then(x=>x.delete({timeout:5000}))
+    if (message.guild.members.cache.has(user.id) && message.member.roles.highest.position <= message.guild.members.cache.get(user.id).roles.highest.position) return message.channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini banlayamazsın!").then(x=>x.delete({timeout:5000}))
     if (member && !member.bannable) return message.channel.send( "Bu üyeyi banlayamıyorum!").then(x=>x.delete({timeout:5000}))
     if (settings.banlimit > 0 && banLimit.has(message.author.id) && banLimit.get(message.author.id) == settings.banlimit) return message.channel.send("Saatlik ban sınırına ulaştın!").then(x=>x.delete({timeout:5000}))
-    await coin.findOneAndUpdate({ guildID: member.guild.id, userID: member.user.id }, { $inc: { coin: -100 } }, { upsert: true });
-    await ceza.findOneAndUpdate({ guildID: message.guild.id, userID: member.user.id }, { $push: { ceza: 1 } }, { upsert: true });
-    await ceza.findOneAndUpdate({ guildID: message.guild.id, userID: member.user.id }, { $inc: { top: 1 } }, { upsert: true });
-    await cezapuan.findOneAndUpdate({ guildID: message.guild.id, userID: member.user.id }, { $inc: { cezapuan: 100 } }, { upsert: true });
-    const cezapuanData = await cezapuan.findOne({ guildID: message.guild.id, userID: member.user.id });
-    if(conf.cezapuanlog) message.guild.channels.cache.get(conf.cezapuanlog).send(`${member} üyesi ban cezası alarak toplam \`${cezapuanData ? cezapuanData.cezapuan : 0} ceza puanına\` ulaştı!`);
     message.react(green)
-    message.guild.members.ban(user.id, { reason }).catch(() => {});
+    message.guild.members.ban(user.id, { reason: `${reason} | Yetkili: ${message.author.tag}` , days:1}).catch(() => {});
     const penal = await client.penalize(message.guild.id, user.id, "BAN", true, message.author.id, reason);
-    const gifs = ["https://media1.tenor.com/images/ed33599ac8db8867ee23bae29b20b0ec/tenor.gif?itemid=14760307", "https://media.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif", "https://media1.tenor.com/images/4732faf454006e370fa9ec6e53dbf040/tenor.gif?itemid=14678194"];
-    message.lineReply(`${green} ${member ? member.toString() : user.username} üyesi, ${message.author} tarafından, \`${reason}\` nedeniyle banlandı! \`(Ceza ID: #${penal.id})\``).then(x=>x.delete({timeout:50000}))
+
+    const messageEmbed = embed
+    .setColor("RANDOM")
+    .setAuthor(message.author.tag, message.author.avatarURL({
+        dynamic: true
+    }))
+    .setTimestamp()
+    .setImage("https://cdn.discordapp.com/attachments/751526628340793427/781384793207472158/bangif4.gif")
+    .setDescription(`**${member ? member.toString() : user.username}** Üyesi Sunucudan **${reason}** Sebebiyle \n${message.author} Tarafından banlandı! Ceza Numarası: (\`#${penal.id}\`)`)
+
     message.react(green)
+    message.lineReply(messageEmbed);
     if (settings.dmMessages) user.send(`**${message.guild.name}** sunucusundan, **${message.author.tag}** tarafından, **${reason}** sebebiyle banlandınız!`).catch(() => {});
 
     const log = embed
       .setDescription(`
-${Cezaa} Banlanan Üye: ${member ? member.toString() : ""} \`${user.id}\`
+${Cezaa} Banlanan Üye: **${member ? member.toString() : user.username}** \`${user.id}\`
 ${Revuu} Banlayan Yetkili: ${message.author} \`${message.author.id}\`
 ${kirmiziok} Ban Sebebi: \`${reason}\`
       `)
       .setFooter(`${moment(Date.now()).format("LLL")}`)
       message.guild.channels.cache.get(conf.banLogChannel).send(log);
+
+    const cezapuanData = await cezapuan.findOne({ guildID: message.guild.id, userID: member.user.id });
+    if(conf.cezapuanlog) message.guild.channels.cache.get(conf.cezapuanlog).send(`${member} üyesi ban cezası alarak toplam \`${cezapuanData ? cezapuanData.cezapuan : 0} ceza puanına\` ulaştı!`);
+
+    await coin.findOneAndUpdate({ guildID: message.guild.id, userID: member.user.id }, { $inc: { coin: -100 } }, { upsert: true });
+    await ceza.findOneAndUpdate({ guildID: message.guild.id, userID: member.user.id }, { $push: { ceza: 1 } }, { upsert: true });
+    await ceza.findOneAndUpdate({ guildID: message.guild.id, userID: member.user.id }, { $inc: { top: 1 } }, { upsert: true });
+    await cezapuan.findOneAndUpdate({ guildID: message.guild.id, userID: member.user.id }, { $inc: { cezapuan: 100 } }, { upsert: true });
 
     if (settings.banlimit > 0) {
       if (!banLimit.has(message.author.id)) banLimit.set(message.author.id, 1);
@@ -67,4 +80,3 @@ ${kirmiziok} Ban Sebebi: \`${reason}\`
     }
   },
 };
-
