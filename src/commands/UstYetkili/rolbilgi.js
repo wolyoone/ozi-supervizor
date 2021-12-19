@@ -7,7 +7,8 @@ module.exports = {
     help: "rolbilgi"
   },
   run: async (client, message, args, embed) => {
-    
+   if (!message.member.hasPermission(8)) return message.channel.send(embed.setDescription(`${message.author}, Bu komutu kullanmak için yeterli yetkiye sahip değilsin!`)).then(x=>x.delete({timeout:5000}));
+ 
   let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0])
 if (!args[0]) return message.lineReply("Bir rol etiketle ve tekrardan dene!")
 if (!role) return message.lineReply("Belirtmiş olduğun rolü bulamadım ! Düzgün bir rol etiketle veya ID belirtip tekrar dene.")
