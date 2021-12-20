@@ -33,12 +33,12 @@ run: async (client, message, args, embed, prefix) => {
     if(!uye) 
     {
     message.react(red)
-    message.lineReply(`\`${prefix}kayıt <@Ozi/ID> <Isim> <Yaş>\``).then(x=>x.delete({timeout:5000})) 
+    message.lineReply(`\`${prefix}kayıt <@Wolyo/ID> <Isim> <Yaş>\``).then(x=>x.delete({timeout:5000})) 
     return }
     if(message.author.id === uye.id) 
     {
     message.react(red)
-    message.lineReply(`Kendini kayıt edemezsin.`).then(x => x.delete({timeout: 5000})); 
+    message.lineReply(`Bu kadar zeki olamazsın.`).then(x => x.delete({timeout: 5000})); 
     return }
     if(!uye.manageable) 
     {
@@ -58,18 +58,18 @@ run: async (client, message, args, embed, prefix) => {
     if(!isim && !yaş) 
     {
     message.react(red)
-    message.lineReply(`\`${prefix}kayıt <@Ozi/ID> <Isim> <Yaş>\``).then(x=>x.delete({timeout:5000})) 
+    message.lineReply(`\`${prefix}kayıt <@Wolyo/ID> <Isim> <Yaş>\``).then(x=>x.delete({timeout:5000})) 
     return }
 
    const tagModedata = await regstats.findOne({ guildID: message.guild.id })
     if (tagModedata && tagModedata.tagMode === true) {
-    if(!uye.roles.cache.has("855159733048311818") && !uye.roles.cache.has(ayar.vipRole) && !uye.roles.cache.has(ayar.boosterRolu)) return message.lineReply(embed.setDescription(`${uye.toString()} isimli üyenin kullanıcı adında tagımız (\`†, Stârk, #1983\`) olmadığı, <@&${ayar.boosterRolu}>, <@&${ayar.vipRole}> Rolü olmadığı için isim değiştirmekden başka kayıt işlemi yapamazsınız.`));
+    if(!uye.roles.cache.has("855159733048311818") && !uye.roles.cache.has(ayar.vipRole) && !uye.roles.cache.has(ayar.boosterRolu)) return message.lineReply(embed.setDescription(`${uye.toString()} isimli üyenin kullanıcı adında tagımız olmadığı, <@&${ayar.boosterRolu}>, <@&${ayar.vipRole}> Rolü olmadığı için isim değiştirmekden başka kayıt işlemi yapamazsınız.`));
     }
 
 
     if(!yaş) 
     { setName =`${conf.tag} ${isim}`;
-    } else { setName = `${conf.tag} ${isim} ' ${yaş}`;
+    } else { setName = `${conf.tag} ${isim} | ${yaş}`;
   }
 
     uye.setNickname(`${setName}`).catch(err => message.lineReply(`İsim çok uzun.`))
@@ -81,19 +81,19 @@ run: async (client, message, args, embed, prefix) => {
     .setID("MAN")
     .setLabel("Erkek")
     .setStyle("blurple")
-    .setEmoji("916010225289560074")
+    .setEmoji("👦")
 
     var button_2 = new MessageButton()
     .setID("WOMAN")
     .setLabel("Kadın")
     .setStyle("green")
-    .setEmoji("916010235200679996")
+    .setEmoji("👧")
 
     var button_3 = new MessageButton()
     .setID("İPTAL")
     .setLabel("İptal")
     .setStyle("red")
-    .setEmoji("915754675742081076")
+    .setEmoji("❌")
 
     let erkekRol = conf.erkekRolleri;
     let kadinRol = conf.kizRolleri;
