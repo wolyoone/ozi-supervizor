@@ -12,6 +12,7 @@ module.exports = {
     if(!ayar.teyitciRolleri.some(rol => message.member.roles.cache.has(rol)) && !message.member.hasPermission('ADMINISTRATOR')) return; 
 
        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+        if(!member) return; message.channel.send(`birisini etiketlemeisin.`);
         if(!member.voice.channel) return message.lineReply("Bağlantısını kesmek istediğiniz kullanıcı sesli odalarda bulunmuyor.", message.author, message.channel)
         if(message.member.roles.highest.rawPosition < member.roles.highest.rawPosition) return message.lineReply("Rolleri senden yüksek birinin ses kanallarında ki bağlantısını kesemezsin.", message.author, message.channel)
         const sestensiktirettim = new Discord.MessageEmbed()
