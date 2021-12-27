@@ -13,7 +13,7 @@ module.exports = {
     if(!conf.teyitciRolleri.some(oku => message.member.roles.cache.has(oku)) && !conf.sahipRolu.some(oku => message.member.roles.cache.has(oku)) && !message.member.hasPermission('ADMINISTRATOR')) 
     {
     message.react(red)
-    message.lineReply(`Yetkin bulunmamakta.\Yetkili olmak istersen başvurabilirsin.`).then(x=> x.delete({timeout: 5000})) 
+    message.lineReply(`Yetkin bulunmamakta.\nYetkili olmak istersen başvurabilirsin.`).then(x=> x.delete({timeout: 5000})) 
     return }
     const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
     const data = await nameData.findOne({ guildID: message.guild.id, userID: member.user.id });
