@@ -17,12 +17,12 @@ run: async (client, message, args, embed, prefix) => {
     if(!Ayarlar.teyitciRolleri.some(oku => message.member.roles.cache.has(oku)) && !Ayarlar.sahipRolu.some(oku => message.member.roles.cache.has(oku)) && !message.member.hasPermission('ADMINISTRATOR')) 
     {
     message.react(red)
-    message.lineReply(`Yetkin bulunmamakta.\Yetkili olmak istersen başvurabilirsin.`).then(x=> x.delete({timeout: 5000})) 
+    message.lineReply(`Yetkin bulunmamakta.\nYetkili olmak istersen başvurabilirsin.`).then(x=> x.delete({timeout: 5000})) 
     return }
     if(!uye) 
     {
     message.react(red)
-    message.lineReply(`\`${prefix}isim <@Ozi/ID> <Isim> <Yaş>\``).then(x=>x.delete({timeout:5000})) 
+    message.lineReply(`\`${prefix}isim <@Wolyo/ID> <Isim> <Yaş>\``).then(x=>x.delete({timeout:5000})) 
     return }
     if(message.author.id === uye.id) 
     {
@@ -47,7 +47,7 @@ run: async (client, message, args, embed, prefix) => {
     if(!isim && !yaş) 
     {
     message.react(red)
-    message.lineReply(`\`${prefix}isim <@Ozi/ID> <Isim> <Yaş>\``).then(x=>x.delete({timeout:5000})) 
+    message.lineReply(`\`${prefix}isim <@Wolyo/ID> <Isim> <Yaş>\``).then(x=>x.delete({timeout:5000})) 
     return }
     if(!yaş) 
     { setName = `${uye.user.username.includes(ayar.tag) ? ayar.tag : (ayar.ikinciTag ? ayar.ikinciTag : (ayar.tag || ""))} ${isim}`;
@@ -57,7 +57,7 @@ run: async (client, message, args, embed, prefix) => {
     message.lineReply(embed.setDescription(`
 ${uye.toString()} üyesinin ismi başarıyla ${setName} olarak değiştirildi!  
 
-**Bu kişi daha önce şu isimlerle kayıt olmuş;**
+Bu üye daha önce şu isimlerle kayıt olmuş
 ${data ? data.names.splice(0, 10).map((x, i) => `\`${i + 1}.\` \`${x.name}\` (${x.rol}) , (<@${x.yetkili}>) , **[**\`${moment(x.date).format("LLL")}\`**]**`).join("\n") : ""}
     `)
 .setAuthor(uye.displayName, uye.user.displayAvatarURL({ dynamic: true }))
